@@ -4,70 +4,113 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
   <title>CONTACT US</title>
 </head>
 <style>
   nav {
   justify-content: center;
-}
+  }
+  h2 {
+    text-align: center;
+    margin-top: 20px;
+  }
+  p {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  .accordion-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .accordion-item {
+    flex: 1;
+    min-width: 300px;
+  }
+  .card-header {
+    text-align: center;
+  }
+  .card-header a {
+    display: block;
+    width: 100%;
+  }
 </style>
 <body>
-<nav class="navbar navbar-expand-sm bg-primary p-3 navbar-dark fixed-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img src="img_avatar1.png" alt="Logo" style="width:40px;" class="rounded-pill">
-    </a>
-    <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="aboutus.html">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="service&facilities.html">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-        <li class="nav-item"><a class="nav-link" href="contactus.html">Contact</a></li>
-        <li class="nav-item"><a class="nav-link" href="appointment.html">Book Appointment</a></li>
-    </ul>
-  </div>
+<nav class="navbar navbar-expand-sm bg-primary justify-content-center redirection-bottom">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="navbar-brand" href="#"><img src="icons/logo hellodoc.png" alt="Logo" style="width: 90px;" class="rounded-pill bg-dark"></a>
+    </li>
+    <li class="nav-item">
+      <a href="aboutus.html" src="aboutus.html"><img src="icons/book.svg"></img><a class="nav-link"></a></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="service&facilities.html" src="service&facilities.html"><img src="icons/heart.svg"></img><a class="nav-link"></a></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="gallery.html" src="gallery.html"><img src="icons/film.svg"></img><a class="nav-link"></a></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="contactus.html" src="contactus.html"><img src="icons/phone.svg"></img><a class="nav-link"></a></a>
+    </li>
+    <li class="nav-item">
+      <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal" src="appointment.html">Book Appointment</button>
+    </li>
+  </ul>
 </nav>
 <br>
 <br>
 <br>
 <div class="container mt-3">
-  <h2>Get In Touch</h2>
-  <p><strong>Note pape</p>
-  <div id="accordion">
-    <div class="card">
-      <div class="card-header">
-        <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
-          Location
-        </a>
-      </div>
-      <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
-        <div class="card-body">
-          nanti cari location.
+  <!-- ada something sini -->
+  
+  <div class="accordion-container" id="accordion">
+    <div class="accordion-item">
+      <div class="card">
+        <div class="card-header">
+          <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
+            Location
+          </a>
+        </div>
+        <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
+          <div class="card-body">
+            nanti cari location.
         </div>
       </div>
     </div>
-    <br>
-    <div class="card">
-      <div class="card-header">
-        <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo">
-        Email Us
-      </a>
-      </div>
-      <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
-        <div class="card-body">
-          hellodoc@gmail.com
+  </div>
+<br>
+  <div class="accordion-item">
+      <div class="card">
+        <div class="card-header">
+          <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo">
+            Email Us
+          </a>
+        </div>
+        <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
+          <div class="card-body">
+            hellodoc@gmail.com
+          </div>
         </div>
       </div>
     </div>
-    <br>
-    <div class="card">
-      <div class="card-header">
-        <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseThree">
-          Phone Number
-        </a>
-      </div>
-      <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
-        <div class="card-body">
+<br>
+    <div class="accordion-item">
+      <div class="card">
+        <div class="card-header">
+          <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseThree">
+            Phone Number
+          </a>
+        </div>
+        <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
+          <div class="card-body">
             +605 - 472 3333.
+          </div>
         </div>
       </div>
     </div>
@@ -75,9 +118,9 @@
 </div>
 <br>
 <div class="container mt-3">
-  <div class="mt-4 p-5 bg-primary text-white rounded">
-    <h1>Information</h1> 
-    <p>Description sikit sini</p> 
+  <div class="mt-1 p-3 bg-warning text-white rounded">
+    <h2>Get In Touch</h2> 
+    <p><strong>If you have any queries or need advice during your time with us, need to book or reschedule an appointment or cancel a treatment, please let us know</strong></p>
   </div>
 </div>
 <div class="container mt-3">
