@@ -21,6 +21,7 @@
     }
 
     nav {
+      justify-content: center;
       background-color: var(--sky-blue);
     }
 
@@ -28,15 +29,19 @@
       padding: 8px 16px;
     }
 
+    .nav-item {
+      transition: transform 0.2s;
+    }
+
+    .nav-item:hover {
+      transform: translateY(-2px);
+    }
+
     .nav-link {
       position: relative;
       padding: 8px 16px;
       color: white !important;
       text-decoration: none;
-    }
-
-    .nav-item:hover {
-      transform: translateY(-2px);
     }
 
     .nav-link.active {
@@ -76,9 +81,33 @@
       line-height: 1.6;
       max-width: 800px;
       margin: 0 auto;
-      background: rgba(0, 0, 0, 0.4);
       padding: 15px;
       border-radius: 10px;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 1);
+    }
+
+    .section-boxes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 40px 20px;
+      gap: 20px;
+    }
+
+    .section-boxes > div {
+      flex: 1;
+      min-width: 250px;
+      max-width: 500px;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .mission {
+      background-color: #e6f0ff;
+    }
+
+    .vision {
+      background-color: #fff4cc;
     }
 
     footer {
@@ -86,7 +115,7 @@
       color: white;
       text-align: center;
       padding: 15px;
-      margin-top: 40px;
+      margin-top: 60px;
     }
 
     @media (max-width: 768px) {
@@ -105,42 +134,33 @@
   <!-- Responsive Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light" x-data>
     <div class="container-fluid">
-      <button
-        class="navbar-toggler mx-auto d-lg-none"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-      >
+      <button class="navbar-toggler mx-auto d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-        <ul class="navbar-nav text-center align-items-center">
+        <ul class="navbar-nav text-center">
           <li class="nav-item">
-            <a class="navbar-brand" href="#">
-              <img src="icons/logo hellodoc.png" alt="Logo" style="width: 50px" class="rounded-pill" />
-            </a>
+            <a class="navbar-brand"><img src="icons/logo hellodoc.png" alt="Logo" style="width: 50px;" class="rounded-pill"></a>
           </li>
-          <li class="nav-item px-2">
+          <li class="nav-item px-2 text-dark fw-bold">
             <a class="nav-link" href="home.html">Home</a>
           </li>
-          <li class="nav-item px-2">
+          <li class="nav-item px-2 text-dark fw-bold">
             <a class="nav-link active" href="aboutus.html">About Us</a>
           </li>
-          <li class="nav-item px-2">
-            <a class="nav-link" href="service&facilities.html">Specialization</a>
+          <li class="nav-item px-2 text-dark fw-bold">
+            <a class="nav-link" href="specialization.html">Specialization</a>
           </li>
-          <li class="nav-item px-2">
+          <li class="nav-item px-2 text-dark fw-bold">
             <a class="nav-link" href="gallery.html">Gallery</a>
           </li>
-          <li class="nav-item px-2">
+          <li class="nav-item px-2 text-dark fw-bold">
             <a class="nav-link" href="contactus.html">Contact Us</a>
           </li>
-          <li class="nav-item px-2">
+          <li class="nav-item">
             <a href="appointment.html">
-              <button type="button" class="btn btn-warning fw-bold">
-                Book Appointment
-              </button>
+              <button type="button" class="btn btn-warning fw-light">Book Appointment</button>
             </a>
           </li>
         </ul>
@@ -150,15 +170,33 @@
 
   <!-- Main Section -->
   <section class="main">
-    <div id="main">
-      <div>
-        <h1>About HelloDoctor</h1>
-        <p>
-          Your health is our mission. We're here to make healthcare simple, fast, and accessible.
-          Whether you're booking an appointment or checking your health updates, we bring medical
-          care closer to you.
-        </p>
-      </div>
+    <div>
+      <h1>About HelloDoctor</h1>
+      <p>
+        Your health is our mission. We're here to make healthcare simple, fast, and accessible.
+        Whether you're booking an appointment or checking your health updates, we bring medical
+        care closer to you.
+      </p>
+    </div>
+  </section>
+
+  <!-- Fun Fact and History -->
+    <div style="background-color: lavender; padding: 40px 20px; text-align: center;">
+        <h2 style="color: #00796b;"><strong>Fun Fact & History</strong></h2>
+        <p style="max-width: 800px; margin: auto; font-size: 18px;">
+            Did you know? <strong>HelloDoctor</strong> was born as a university project in 2023. It is just an idea among friends who wanted to make healthcare easier to access. <br><br>What started with simple appointment bookings soon turned into a complete health companion in your pocket. Today, HelloDoctor is helping people stay healthy, informed, and connected with doctors – all from their phones!</p>
+    </div>
+
+  <!-- Mission and Vision Section -->
+  <section class="section-boxes">
+    <div class="mission">
+      <h2><strong>Our Mission</strong></h2>
+      <p>To provide healthcare that is simple, fast, and accessible for everyone. We want people to manage their health easily from anywhere.</p>
+    </div>
+
+    <div class="vision">
+      <h2><strong>Our Vision</strong></h2>
+      <p>To become a trusted healthcare platform that helps people stay healthy using modern technology and support.</p>
     </div>
   </section>
 
