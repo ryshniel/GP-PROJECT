@@ -1,116 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>About Us</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
-    <style>
-        body {
-            margin:0;
-            padding-top: 50px;
-            font-family: Arial, sans-serif;
-        }
+  <style>
+    :root {
+      --sky-blue: #3a6d8c;
+      --beige: #ffdc7f;
+      --soft-blue: #6a9ab0;
+    }
 
-        ul{
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #003366;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            display: flex;
-        }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
 
-        li{
-            display: inline;
-        }
+    nav {
+      background-color: var(--sky-blue);
+    }
 
-        .nav-left{
-            margin-right: auto;
-        }
+    .navbar {
+      padding: 8px 16px;
+    }
 
-        .nav-right{
-            float: none;
-        }
+    .nav-link {
+      position: relative;
+      padding: 8px 16px;
+      color: white !important;
+      text-decoration: none;
+    }
 
-        li a{
-            display: block;
-            color: white;
-            text-align: center;
-            padding :14px 16px;
-            text-decoration: none;
-        }
+    .nav-item:hover {
+      transform: translateY(-2px);
+    }
 
-        li a:hover:not(.active){
-            background-color: black;
-        }
+    .nav-link.active {
+      font-weight: 600;
+    }
 
-        .main{
-            padding: 2px;
-            background: url(nurse.jpg);
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
-            filter: brightness(100%);
-            text-align: center;
-            height: 450px;
-        }
+    .nav-link.active::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 25%;
+      width: 50%;
+      height: 2px;
+      background-color: rgba(255, 255, 255, 0.9);
+    }
 
-        .main h1{
-            font-size: 45px;
-            margin-bottom: 10px;
-        }
+    .main {
+      background: url("nurse.jpg") no-repeat center center;
+      background-size: cover;
+      height: 450px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 0 15px;
+    }
 
-        .main p{
-            font-size: 20px;
-            line-height: 1.5;
-        }
+    .main h1 {
+      font-size: 45px;
+      margin-bottom: 10px;
+      color: black;
+    }
 
+    .main p {
+      font-size: 20px;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 15px;
+      border-radius: 10px;
+    }
 
-        footer{
-            background-color: #003366;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            margin-top: 40px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-    </style>
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .main h1 {
+        font-size: 32px;
+      }
+
+      .main p {
+        font-size: 16px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm">
-        <div class="container">
-            <a class="navbar-brand" href="#"><i class="fas fa-hospital"></i> HOSP?</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="aboutus.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="service&facilities.html">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contactus.html">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="appointment.html">Book Appointment</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+  <!-- Responsive Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light" x-data>
+    <div class="container-fluid">
+      <button
+        class="navbar-toggler mx-auto d-lg-none"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <section class="main">
-        <div id="main">
-            <h1> About HelloDoctor</h1>
-            <p>Your health is our mission.<br> We're here to make healthcare simple, fast, and accessible.<br> Whether you're booking an appoinmnet or checking you health updates, we bring medical care closer to you, right from your phone. </p>
-        </div>
-    </section>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav text-center align-items-center">
+          <li class="nav-item">
+            <a class="navbar-brand" href="#">
+              <img src="icons/logo hellodoc.png" alt="Logo" style="width: 50px" class="rounded-pill" />
+            </a>
+          </li>
+          <li class="nav-item px-2">
+            <a class="nav-link" href="home.html">Home</a>
+          </li>
+          <li class="nav-item px-2">
+            <a class="nav-link active" href="aboutus.html">About Us</a>
+          </li>
+          <li class="nav-item px-2">
+            <a class="nav-link" href="service&facilities.html">Specialization</a>
+          </li>
+          <li class="nav-item px-2">
+            <a class="nav-link" href="gallery.html">Gallery</a>
+          </li>
+          <li class="nav-item px-2">
+            <a class="nav-link" href="contactus.html">Contact Us</a>
+          </li>
+          <li class="nav-item px-2">
+            <a href="appointment.html">
+              <button type="button" class="btn btn-warning fw-bold">
+                Book Appointment
+              </button>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-    <footer class="text-center py-4 bg-dark text-white">
-        <p class="mb-0">&copy; 2025 HelloDoctor. All Rights Reserved.</p>
-    </footer>
+  <!-- Main Section -->
+  <section class="main">
+    <div id="main">
+      <div>
+        <h1>About HelloDoctor</h1>
+        <p>
+          Your health is our mission. We're here to make healthcare simple, fast, and accessible.
+          Whether you're booking an appointment or checking your health updates, we bring medical
+          care closer to you.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p class="mb-0">&copy; 2025 HelloDoctor. All Rights Reserved.</p>
+  </footer>
 
 </body>
 </html>
