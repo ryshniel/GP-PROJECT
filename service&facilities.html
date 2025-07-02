@@ -130,106 +130,98 @@
         
         <style>
                 :root {
-                    --sky-blue: #3a6d8c;
-                    --beige: #ffdc7f;
-                    --soft-blue: #6a9ab0;
-                }
+            --sky-blue: #3a6d8c;
+            --beige: #ffdc7f;
+            --soft-blue: #6a9ab0;
+        }
 
-                nav {
-                    justify-content: center;
-                    background-color: var(--sky-blue);
-                    color: white;
-                }
-                .navbar {
-                    padding: 8px 16px;
-                }
+        nav {
+            justify-content: center;
+            background-color: var(--sky-blue);
+            color: white;
+        }
+        .navbar {
+            padding: 8px 16px;
+        }
 
-                .nav-item {
-                    transition: transform 0.2s;
-                }
+        .nav-item {
+            transition: transform 0.2s;
+        }
 
-                .nav-item:hover {
-                    transform: translateY(-2px);
-                }
+        .nav-item:hover {
+            transform: translateY(-2px);
+        }
 
-                .nav-link {
-                    position: relative;
-                    padding: 8px 16px;
-                }
+        .nav-link {
+            position: relative;
+            padding: 8px 16px;
+        }
 
-                .nav-link.active {
-                    font-weight: 600;
-                }
+        .nav-link.active {
+            font-weight: 600;
+        }
 
-                .nav-link.active::after {
-                    content: "";
-                    position: absolute;
-                    bottom: 0;
-                    left: 25%;
-                    width: 50%;
-                    height: 2px;
-                    background-color: rgba(0, 0, 0, 0.8);
-                }
+        .nav-link.active::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            width: 50%;
+            height: 2px;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
 
-                @media (max-width: 992px) {
-                    .navbar-collapse {
-                        padding: 16px 0;
-                    }
-                }
-
-                /* Added styles for specialists section */
-                .doctor-img {
-                    width: 50px;
-                    height: 50px;
-                    object-fit: cover;
-                }
-                .specialist-item {
-                    border-left: 3px solid dodgerblue;
-                    padding-left: 10px;
-                    margin-bottom: 15px;
-                }
-                .specialist-name {
-                    font-weight: 600;
-                    margin-bottom: 0;
-                }
-                .specialist-title {
-                    font-size: 0.8rem;
-                    color: #6c757d;
-                }
+        @media (max-width: 992px) {
+            .navbar-collapse {
+                padding: 16px 0;
+            }
+        }
 </style>
-
-<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="70">
-
-    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">HelloDoctor</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="aboutus.html">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="services_facilities.html">Services & Facilities</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="gallery.html">Gallery</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contactus.html">Contact Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="appointment.html">Book Appointment</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light" x-data>
+  <div class="container-fluid">
+    <!-- for phone display -->
+    <button class="navbar-toggler mx-auto d-lg-none" 
+            type="button" 
+            data-bs-toggle="collapse" 
+            data-bs-target="#navbarNav" 
+            @click="$store.nav.toggle()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <!-- Centered navigation items -->
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav text-center">
+        <li class="nav-item">
+          <a class="navbar-brand"><img src="icons/logo hellodoc.png" alt="Logo" style="width: 50px;" class="rounded-pill"></a>
+        </li>
+        <li class="nav-item px-2 text-dark fw-bold">
+          <a class="nav-link" :class="{ 'active': $store.nav.isActive('home') }" href="home.html">Home</a>
+        </li>
+        <li class="nav-item px-2 text-dark fw-bold">
+          <a class="nav-link" :class="{ 'active': $store.nav.isActive('about') }" href="aboutus.html">About Us</a>
+        </li>
+        <li class="nav-item px-2 text-dark fw-bold">
+          <a class="nav-link" :class="{ 'active': $store.nav.isActive('contact') }" href="contactus.html">Contact Us</a>
+        </li>
+        <li class="nav-item px-2 text-dark fw-bold">
+          <a class="nav-link" :class="{ 'active': $store.nav.isActive('specialization') }" href="specialization.html">Specialization</a>
+        </li>
+        <li class="nav-item px-2 text-dark fw-bold">
+          <a class="nav-link" :class="{ 'active': $store.nav.isActive('gallery') }" href="gallery.html">Gallery</a>
+        </li>
+        <li class="nav-item px-2 text-dark fw-bold">
+          <a class="nav-link" :class="{ 'active': $store.nav.isActive('contact') }" href="contactus.html">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a rel="stylesheet" href="appointment.html">
+          <button type="button" class="btn btn-warning fw-light" data-bs-toggle="modal" data-bs-target="#myModal" src="appointment.html">Book Appointment</button>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
     <header class="hero text-center d-flex align-items-center justify-content-center">
         <div class="container">
@@ -449,7 +441,7 @@
 
     <footer class="bg-dark text-white text-center py-4">
         <div class="container">
-            <p class="mb-0">&copy; 2025 Hospital ... All Rights Reserved.</p>
+            <p class="mb-0">&copy; 2025 Hospital HelloDoctor All Rights Reserved.</p>
         </div>
     </footer>
 
