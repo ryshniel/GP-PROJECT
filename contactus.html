@@ -4,108 +4,212 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <title>CONTACT US</title>
 </head>
 <style>
-    gmpx-store-locator {
-        width: 100%;
-        height: 100%;
+  :root {
+    --sky-blue: #48639c;
+    --beige: #FFDC7F;
+    --soft-blue: #6A9AB0;
+  }
 
-        /* These parameters customize the appearance of Locator Plus. See the documentation at
-           https://github.com/googlemaps/extended-component-library/blob/main/src/store_locator/README.md
-           for more information. */
-        --gmpx-color-surface: #fff;
-        --gmpx-color-on-surface: #212121;
-        --gmpx-color-on-surface-variant: #757575;
-        --gmpx-color-primary: #1967d2;
-        --gmpx-color-outline: #e0e0e0;
-        --gmpx-fixed-panel-width-row-layout: 28.5em;
-        --gmpx-fixed-panel-height-column-layout: 65%;
-        --gmpx-font-family-base: "Roboto", sans-serif;
-        --gmpx-font-family-headings: "Roboto", sans-serif;
-        --gmpx-font-size-base: 0.875rem;
-        --gmpx-hours-color-open: #188038;
-        --gmpx-hours-color-closed: #d50000;
-        --gmpx-rating-color: #ffb300;
-        --gmpx-rating-color-empty: #e0e0e0;
-      }
+  nav {
+    justify-content: center;
+    background-color: var(--sky-blue);
+  }
+  body {
+    background-color: var(--beige);
+    font-family: Arial, sans-serif;
+  }
+
+  footer {
+    background-color: var(--sky-blue);
+    color: white;
+  }
+  h2 {
+    text-align: center;
+    margin-top: 20px;
+  }
+  p {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  a:hover {
+    color: var(--soft-blue);
+  }
+
+  /* styling for */
+  .accordion-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .accordion-item {
+    flex: 1;
+    min-width: 50px;
+  }
+  .accordion-item .card-body {
+    padding: 15px;
+    background-color: wheat;
+  }
+  .card-header {
+    text-align: center;
+    background-color: var(--soft-blue);
+  }
+  .card-header a {
+    display: block;
+    width: 100%;
+    background-color: wheat;
+  }
+
+  /* Navbar styling */
+  .navbar {
+    padding: 8px 16px;
+  }
+
+  .nav-item {
+    transition: transform 0.2s;
+  }
+
+  .nav-item:hover {
+    transform: translateY(-2px);
+  }
+
+  .nav-link {
+    position: relative;
+    padding: 8px 16px;
+  }
+
+  .nav-link.active {
+    font-weight: 600;
+  }
+
+  .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    width: 50%;
+    height: 2px;
+    background-color: rgba(0,0,0,0.8);
+  }
+
+  @media (max-width: 502px) {
+  .navbar-collapse {
+      padding: 16px 0;
+    }
+  }
+
+  /* styling untuk form */
+  .form-control {
+    margin-bottom: 10px;
+  }
+  .btn-success {
+    width: 100%;
+  }
 </style>
 <body>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<nav class="navbar navbar-expand-lg navbar-light" x-data>
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img src="img_avatar1.png" alt="Logo" style="width:40px;" class="rounded-pill">
-    </a>
+    <!-- for phone display -->
+    <button class="navbar-toggler mx-auto d-lg-none" 
+            type="button" 
+            data-bs-toggle="collapse" 
+            data-bs-target="#navbarNav" 
+            @click="$store.nav.toggle()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <!-- Centered navigation items -->
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav text-center">
+        <li class="nav-item">
+          <a class="navbar-brand"><img src="icons/logo hellodoc.png" alt="Logo" style="width: 50px;" class="rounded-pill"></a>
+        </li>
+        <li class="nav-item px-2">
+          <a class="nav-link" :class="{ 'active': $store.nav.isActive('home') }" href="home.html">Home</a>
+        </li>
+        <li class="nav-item px-2 text-light fw-bold">
+          <a class="nav-link" :class="{ 'active': $store.nav.isActive('about') }" href="aboutus.html">About Us</a>
+        </li>
+        <li class="nav-item px-2 text-light fw-bold">
+          <a class="nav-link" :class="{ 'active': $store.nav.isActive('specialization') }" href="service&facilities.html">Specialization</a>
+        </li>
+        <li class="nav-item px-2 text-light fw-bold">
+          <a class="nav-link" :class="{ 'active': $store.nav.isActive('gallery') }" href="gallery.html">Gallery</a>
+        </li>
+        <li class="nav-item px-2 text-light fw-bold">
+          <a class="nav-link" :class="{ 'active': $store.nav.isActive('contact') }" href="contactus.html">Contact Us</a>
+        </li>
+        <li class="nav-item">
+        <a rel="stylesheet" href="appointment.html">
+          <button type="button" class="btn btn-warning fw-bold" data-bs-toggle="modal" data-bs-target="#myModal" src="appointment.html">Book Appointment</button>
+        </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
-
-    <script>
-      const CONFIGURATION = {
-        "locations": [
-        ],
-        "mapOptions": {"center":{"lat":38.0,"lng":-100.0},"fullscreenControl":true,"mapTypeControl":false,"streetViewControl":false,"zoom":4,"zoomControl":true,"maxZoom":17,"mapId":""},
-        "mapsApiKey": "YOUR_API_KEY_HERE",
-        "capabilities": {"input":true,"autocomplete":true,"directions":false,"distanceMatrix":true,"details":false,"actions":false}
-      };
-
-    </script>
-    <script type="module">
-      document.addEventListener('DOMContentLoaded', async () => {
-        await customElements.whenDefined('gmpx-store-locator');
-        const locator = document.querySelector('gmpx-store-locator');
-        locator.configureFromQuickBuilder(CONFIGURATION);
-      });
-    </script>
-
-<div class="container mt-3">
-  <div class="mt-4 p-5 bg-primary text-white rounded">
-    <h1>Information</h1> 
-    <p>Description sikit sini</p> 
+<br>
+<div class="accordion-container" id="accordion">
+    <div class="accordion-item">
+      <div class="card">
+        <div class="card-header">
+          <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
+            <h5>LOCATION</h5>
+          </a>
+        </div>
+        <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
+          <div class="card-body">
+            <p>117, Jalan SS 20/10, Damansara Utama, 47400 Petaling Jaya, Selangor</p>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-
-<div class="container mt-3">
-  <h2>Accordion Example</h2>
-  <p><strong>Note pape</p>
-  <div id="accordion">
-    <div class="card">
-      <div class="card-header">
-        <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
-          Location
-        </a>
-      </div>
-      <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
-        <div class="card-body">
-          nanti cari location.
+<br>
+  <div class="accordion-item">
+      <div class="card">
+        <div class="card-header">
+          <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo">
+            <h5>EMAIL US</h5>
+          </a>
+        </div>
+        <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
+          <div class="card-body">
+            <p>hellodoc@gmail.com</p>
+          </div>
         </div>
       </div>
     </div>
-    <div class="card">
-      <div class="card-header">
-        <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo">
-        Email Us
-      </a>
-      </div>
-      <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
-        <div class="card-body">
-          hellodoc@gmail.com
+<br>
+    <div class="accordion-item">
+      <div class="card">
+        <div class="card-header">
+          <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseThree">
+            <h5>PHONE NUMBER</h5>
+          </a>
         </div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-header">
-        <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseThree">
-          Phone Number
-        </a>
-      </div>
-      <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
-        <div class="card-body">
-            +605 - 472 3333.
+        <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
+          <div class="card-body">
+            <p>+605 - 472 3333</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
 <br>
+<div class="container mt-3">
+  <div class="mt-1 p-3 card-header text-dark rounded">
+    <h2>Get In Touch</h2> 
+    <p><strong>If you have any queries or need advice during your time with us, need to book or reschedule an appointment or cancel a treatment, please let us know</strong></p>
+  </div>
+</div>
 <div class="container mt-3">
   <form action="/action_page.php">
     <div class="mb-3 mt-3">
@@ -127,15 +231,88 @@
       <input type="submit" class="btn btn-success" value="Send Message">
   </form>
 </div>
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/@googlemaps/extended-component-library/0.6.11/index.min.js"></script>
+<br>
+<script>
+document.addEventListener('alpine:init', () => {
+  // Store for navigation state
+  Alpine.store('nav', {
+    open: false,
+    currentPage: 'home',
+    
+    toggle() {
+      this.open = !this.open
+    },
+    
+    isActive(page) {
+      return this.currentPage === page
+    }
+  })
+})
+</script>
+<footer class="footer pt-5" x-data="{ currentYear: new Date().getFullYear() }">
+  <div class="container">
+    <div class="row">
+      <!-- Quick Links -->
+      <div class="col-md-3 mb-4">
+        <h5 class="mb-3 fw-bold">Quick Links</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="home.html">Home</a></li>
+          <li class="mb-2"><a href="about.html">About Us</a></li>
+          <li class="mb-2"><a href="service&facilities.html">Specializations</a></li>
+          <li class="mb-2"><a href="doctors.html">Doctors</a></li>
+          <li class="mb-2"><a href="appointments.html">Appointments</a></li>
+        </ul>
+      </div>
 
-    <!-- Uses components from the Extended Component Library; see
-         https://github.com/googlemaps/extended-component-library for more information
-         on these HTML tags and how to configure them. -->
-    <gmpx-api-loader key="YOUR_API_KEY_HERE" solution-channel="GMP_QB_locatorplus_v11_cABD"></gmpx-api-loader>
-    <gmpx-store-locator map-id="DEMO_MAP_ID"></gmpx-store-locator>
-    <footer>
-      
-    </footer>
+      <!-- Services -->
+      <div class="col-md-3 mb-4">
+        <h5 class="mb-3 fw-bold">Specializations</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="service&facilities.html">Cardiology</a></li>
+          <li class="mb-2"><a href="service&facilities.html">Dental</a></li>
+          <li class="mb-2"><a href="service&facilities.html">Psychiatry Services</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact with Centered Logo -->
+      <div class="col-md-6 mb-4">
+        <div class="d-flex flex-column align-items-center text-center">
+          <!-- Centered Logo -->
+          <div class="mb-3">
+            <img src="icons/logo hellodoc.png" style="width: 80px;" class="img-fluid">
+          </div>
+          
+          <address>
+            <p>
+              <i class="bi bi-geo-alt-fill me-2"></i> 117, Jalan SS 20/10
+              Damansara Utama,<br />47400 Petaling Jaya, Selangor
+            </p>
+            <p>
+              <i class="bi bi-telephone-fill me-2"></i> (605)
+              472-3333
+            </p>
+            <p>
+              <i class="bi bi-envelope-fill me-2"></i>
+              hellodoc@healthcare.com.my
+            </p>
+          </address>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-divider pt-3 mt-3"></div>
+    
+    <div class="row justify-content-center">
+      <div class="col-md-6 text-center mb-3">
+        <p>
+          &copy; <span x-text="currentYear"></span> HelloDoctor. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Add this if not already in your head section -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </body>
 </html>
