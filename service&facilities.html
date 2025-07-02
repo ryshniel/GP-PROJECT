@@ -4,455 +4,469 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services And Facilities</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            background-color: #fefefe;
+            scroll-behavior: smooth;
+            padding-top: 0;
+        }
+
+        /* Navbar Styling - Blue Header */
+        .navbar {
+            background-color: dodgerblue !important;
+            border: none;
+            border-radius: 0;
+            margin-bottom: 0;
+            min-height: 70px;
+            padding: 0 1rem;
+        }
+
+        .navbar-brand img {
+            width: 50px;
+            border-radius: 50%;
+        }
+
+        .nav-link {
+            color: white !important;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+        }
+
+        .nav-link:hover {
+            color: #ffdc7f !important;
+        }
+
+        .nav-link.active {
+            position: relative;
+        }
+
+        .nav-link.active::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            width: 50%;
+            height: 2px;
+            background-color: white;
+        }
+
+        /* Book Appointment Button Styling */
+        .btn-appointment {
+            background-color: #ffdc7f;
+            color: #3a6d8c;
+            font-weight: 600;
+            border-radius: 30px;
+            padding: 0.5rem 1.5rem;
+            margin-left: 1rem;
+            transition: all 0.3s;
+            border: none;
+        }
+
+        .btn-appointment:hover {
+            background-color: #ffd15e;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(30,144,255,0.6), rgba(255,255,255,0.5)), url('images/hero.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content {
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+
+        .hero .btn {
+            padding: 0.75rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            font-weight: 600;
+        }
+
+        /* Sections */
+        .section {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+
+        .section:nth-child(even) {
+            background-color: #f4f4f4;
+        }
+
+        h2 {
+            margin-bottom: 30px;
+            color: dodgerblue;
+            font-size: 32px;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background-color: dodgerblue;
+            color: white;
+            padding: 15px 0;
+            margin-top: 40px;
+        }
+
+        /* Specialist Cards */
+        .card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* Specialist Styles */
+        .specialist-container {
+            margin-top: 20px;
+        }
+        .specialist-card {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        .specialist-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        .specialist-info {
+            flex-grow: 1;
+        }
+        .specialist-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .specialist-title {
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .navbar-collapse {
+                padding: 1rem 0;
+            }
+            
+            .btn-appointment {
+                margin: 1rem 0 0 0;
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
+    <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="70">
 
-        <style>
-                /* General Styling */
-                body {
-                font-family: 'Segoe UI', sans-serif;
-                line-height: 1.6;
-                background-color: #fefefe;
-                scroll-behavior: smooth;
-                padding-top: 70px;
-                }
-
-                /* Navbar Styling */
-                .navbar {
-                background-color: dodgerblue;
-                border: none;
-                border-radius: 0;
-                margin-bottom: 0;
-                min-height: 70px;
-                }
-
-                .navbar .navbar-brand {
-                color: #fff !important;
-                font-size: 24px;
-                font-weight: 700;
-                padding-top: 20px;
-                padding-bottom: 20px;
-                }
-
-                .navbar-nav > li > a {
-                color: #fff !important;
-                font-size: 18px;
-                font-weight: 600;
-                padding-top: 20px;
-                padding-bottom: 20px;
-                }
-
-                .navbar .navbar-brand:hover,
-                .navbar-nav > li > a:hover {
-                background-color: #1976d2 !important;
-                color: #fff !important;
-                }
-
-                /* Hero Section */
-                .hero {
-                padding: 140px 20px 100px;
-                background: linear-gradient(rgba(30,144,255,0.6), rgba(255,255,255,0.5)), url('images/hero.jpg') no-repeat center center;
-                background-size: cover;
-                color: white;
-                }
-
-                .hero h1 {
-                font-size: 42px;
-                font-weight: bold;
-                }
-
-                .hero p {
-                font-size: 20px;
-                margin-top: 10px;
-                }
-
-                /* Sections */
-                .section {
-                padding: 60px 0;
-                background-color: #fff;
-                }
-
-                .section:nth-child(even) {
-                background-color: #f4f4f4;
-                }
-
-                h2 {
-                margin-bottom: 30px;
-                color: dodgerblue;
-                font-size: 32px;
-                font-weight: 600;
-                }
-
-                /* Buttons */
-                .btn-primary {
-                background-color: dodgerblue;
-                border: none;
-                }
-
-                .btn-primary:hover {
-                background-color: #1976d2;
-                }
-
-                /* Footer */
-                footer {
-                background-color: dodgerblue;
-                color: white;
-                padding: 15px 0;
-                margin-top: 40px;
-                }
-
-                /* Other specific styles from your provided CSS */
-                .img-thumbnail {
-                    height: 200px;
-                    object-fit: cover;
-                }
-
-                .about-divider {
-                    width: 60px;
-                    border-top: 3px solid dodgerblue;
-                    margin: 30px auto;
-                }
-
-                .btn-lg {
-                    padding: 12px 30px;
-                    font-size: 18px;
-                    border-radius: 6px;
-                }
-
-                .hero .btn {
-                    margin-top: 20px;
-                }
-        </style>
-        
-        <style>
-                :root {
-                    --sky-blue: #3a6d8c;
-                    --beige: #ffdc7f;
-                    --soft-blue: #6a9ab0;
-                }
-
-                nav {
-                    justify-content: center;
-                    background-color: var(--sky-blue);
-                    color: white;
-                }
-                .navbar {
-                    padding: 8px 16px;
-                }
-
-                .nav-item {
-                    transition: transform 0.2s;
-                }
-
-                .nav-item:hover {
-                    transform: translateY(-2px);
-                }
-
-                .nav-link {
-                    position: relative;
-                    padding: 8px 16px;
-                }
-
-                .nav-link.active {
-                    font-weight: 600;
-                }
-
-                .nav-link.active::after {
-                    content: "";
-                    position: absolute;
-                    bottom: 0;
-                    left: 25%;
-                    width: 50%;
-                    height: 2px;
-                    background-color: rgba(0, 0, 0, 0.8);
-                }
-
-                @media (max-width: 992px) {
-                    .navbar-collapse {
-                        padding: 16px 0;
-                    }
-                }
-
-                /* Added styles for specialists section */
-                .doctor-img {
-                    width: 50px;
-                    height: 50px;
-                    object-fit: cover;
-                }
-                .specialist-item {
-                    border-left: 3px solid dodgerblue;
-                    padding-left: 10px;
-                    margin-bottom: 15px;
-                }
-                .specialist-name {
-                    font-weight: 600;
-                    margin-bottom: 0;
-                }
-                .specialist-title {
-                    font-size: 0.8rem;
-                    color: #6c757d;
-                }
-</style>
-
-<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="70">
-
-    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">HelloDoctor</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="aboutus.html">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="services_facilities.html">Services & Facilities</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="gallery.html">Gallery</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contactus.html">Contact Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="appointment.html">Book Appointment</a>
-                    </li>
-                </ul>
+        <!-- Blue Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark" x-data>
+            <div class="container-fluid">
+                <a class="navbar-brand"><img src="icons/logo hellodoc.png" alt="Logo" class="rounded-pill"></a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" @click="$store.nav.toggle()">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav text-center">
+                        <li class="nav-item px-2">
+                            <a class="nav-link" :class="{ 'active': $store.nav.isActive('home') }" href="home.html">Home</a>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a class="nav-link" :class="{ 'active': $store.nav.isActive('about') }" href="aboutus.html">About Us</a>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a class="nav-link" :class="{ 'active': $store.nav.isActive('contact') }" href="contactus.html">Contact Us</a>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a class="nav-link" :class="{ 'active': $store.nav.isActive('specialization') }" href="specialization.html">Specialization</a>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a class="nav-link" :class="{ 'active': $store.nav.isActive('gallery') }" href="gallery.html">Gallery</a>
+                        </li>
+                    </ul>
+                    
+                    <a href="appointment.html" class="btn btn-appointment">
+                        Book Appointment
+                    </a>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <header class="hero text-center d-flex align-items-center justify-content-center">
-        <div class="container">
-            <p>Your health and well-being are our top priority. Discover compassionate care and advanced medical services.</p>
-        </div>
-    </header>
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="hero-content">
+                <h1>Welcome to HelloDoctor</h1>
+                <p>Your health and well-being are our top priority. Discover compassionate care and advanced medical services.</p>
+            
+            </div>
+        </header>
 
-    <section id="welcome-info" class="section">
-        <div class="container text-center">
-            <h2>Committed to Your Health</h2>
-            <p>At our hospital, we are dedicated to providing high-quality healthcare services to our community. Our team of experienced professionals and state-of-the-art facilities ensure you receive the best possible care.</p>
-            <p>Explore our website to learn more about our services, facilities, and how we can support your health journey.</p>
-            <div class="about-divider"></div> </div>
-    </section>
+        <section id="welcome-info" class="section">
+            <div class="container text-center">
+                <h2>Committed to Your Health</h2>
+                <p>At our hospital, we are dedicated to providing high-quality healthcare services to our community. Our team of experienced professionals and state-of-the-art facilities ensure you receive the best possible care.</p>
+                <p>Explore our website to learn more about our services, facilities, and how we can support your health journey.</p>
+                <div class="about-divider"></div>
+            </div>
+        </section>
 
-<section id="services" class="section">
-    <div class="container">
-        <h2 class="text-center mb-5 text-primary">Our Specializations</h2>
-        <div class="row g-4">
-            <!-- Cardiology Card -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 shadow-sm" x-data="{ expanded: false, showSpecialists: false }">
-                    <div class="image-container">
-                        <img src="cardiology.jpg" class="card-img-top img-fluid" alt="Cardiology Service">
-                    </div>
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title text-info">Cardiology</h5>
-                        <p class="card-text" :class="{ 'text-truncate': !expanded }" x-show="!expanded">
-                            Our cardiology department offers comprehensive care for heart-related conditions, specializing in advanced diagnostics.
-                        </p>
-                        <p class="card-text" x-show="expanded" x-transition:enter.duration.500ms>
-                            Our cardiology department offers comprehensive care for heart-related conditions.
-                            We provide advanced diagnostics and treatments for various cardiovascular diseases,
-                            including echocardiograms, stress tests, and interventional procedures.
-                            Our team of experienced cardiologists is dedicated to providing personalized and effective care.
-                        </p>
-                        
-                        <!-- Specialists Section -->
-                        <div x-show="showSpecialists" x-transition:enter.duration.300ms x-transition:leave.duration.200ms class="mt-3">
-                            <h6 class="text-primary mb-3">Our Cardiology Specialists:</h6>
-                            <div class="specialist-item">
-                                <div class="d-flex align-items-center">
-                                    <img src="https://via.placeholder.com/50" class="rounded-circle doctor-img me-3" alt="Doctor">
-                                    <div>
-                                        <p class="specialist-name mb-0">DR. NG KIM FONG</p>
-                                        <small class="specialist-title">Consultant Cardiologist</small>
+        <section id="services" class="section">
+            <div class="container">
+                <h2 class="text-center mb-5 text-primary">Our Specializations</h2>
+                <div class="row g-4">
+                    <!-- Cardiology Card -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm" x-data="{ expanded: false, showSpecialists: false }">
+                            <div class="image-container">
+                                <img src="cardiology.jpg" class="card-img-top img-fluid" alt="Cardiology Service">
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title text-info">Cardiology</h5>
+                                <p class="card-text" :class="{ 'text-truncate': !expanded }" x-show="!expanded">
+                                    Our cardiology department offers comprehensive care for heart-related conditions, specializing in advanced diagnostics.
+                                </p>
+                                <p class="card-text" x-show="expanded" x-transition:enter.duration.500ms>
+                                    Our cardiology department offers comprehensive care for heart-related conditions.
+                                    We provide advanced diagnostics and treatments for various cardiovascular diseases,
+                                    including echocardiograms, stress tests, and interventional procedures.
+                                    Our team of experienced cardiologists is dedicated to providing personalized and effective care.
+                                </p>
+                                
+                                <!-- Specialists Section -->
+                                <div x-show="showSpecialists" x-transition:enter.duration.300ms x-transition:leave.duration.200ms class="mt-3">
+                                    <h6 class="text-primary mb-3">Our Cardiology Specialists:</h6>
+                                    <div class="specialist-item">
+                                        <div class="d-flex align-items-center">
+                                            <img src="ng_kim.jpg" class="rounded-circle doctor-img me-3" alt="DR.NG KIM FONG">
+                                            <div>
+                                                <p class="specialist-name mb-0">DR. NG KIM FONG</p>
+                                                <small class="specialist-title">Consultant Cardiologist</small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="specialist-item">
+                                        <div class="d-flex align-items-center">
+                                            <img src="md_adhanizam.jpg" class="rounded-circle doctor-img me-3" alt="DR.MD ADHANIZAM">
+                                            <div>
+                                                <p class="specialist-name mb-0">DR. MD.ADHANIZAM BUYONG</p>
+                                                <small class="specialist-title">Senior Cardiologist</small>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="specialist-item">
-                                <div class="d-flex align-items-center">
-                                    <img src="https://via.placeholder.com/50" class="rounded-circle doctor-img me-3" alt="Doctor">
-                                    <div>
-                                        <p class="specialist-name mb-0">DR. MD.ADHANIZAM BUYONG</p>
-                                        <small class="specialist-title">Senior Cardiologist</small>
-                                    </div>
+                                
+                                <div class="mt-auto d-flex justify-content-between pt-3">
+                                    <button @click="expanded = !expanded" class="btn btn-primary btn-sm">
+                                        <span x-text="expanded ? 'Read Less' : 'Read More'"></span>
+                                    </button>
+                                    <button @click="showSpecialists = !showSpecialists" class="btn btn-outline-info btn-sm">
+                                        <span x-text="showSpecialists ? 'Hide Specialists' : 'View Specialists'"></span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="mt-auto d-flex justify-content-between pt-3">
-                            <button @click="expanded = !expanded" class="btn btn-primary btn-sm">
-                                <span x-text="expanded ? 'Read Less' : 'Read More'"></span>
-                            </button>
-                            <button @click="showSpecialists = !showSpecialists" class="btn btn-outline-info btn-sm">
-                                <span x-text="showSpecialists ? 'Hide Specialists' : 'View Specialists'"></span>
-                            </button>
+                    </div>
+
+                    <!-- Dental Card -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm" x-data="{ expanded: false, showSpecialists: false }">
+                            <div class="image-container">
+                                <img src="pediatrics.jpg" class="card-img-top img-fluid" alt="Dental Service">
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title text-info">Dental</h5>
+                                <p class="card-text" :class="{ 'text-truncate': !expanded }" x-show="!expanded">
+                                    Comprehensive oral care including check-ups, cleanings, and cosmetic treatments for healthy smiles.
+                                </p>
+                                <p class="card-text" x-show="expanded" x-transition:enter.duration.500ms>
+                                    Our dental services focus on maintaining optimal oral health through preventive, restorative, and cosmetic
+                                    care. We offer routine check-ups, cleanings, fillings, extractions, root canals, and teeth whitening. With
+                                    advanced equipment and skilled dental professionals, we ensure a comfortable and hygienic experience for
+                                    every patient.
+                                </p>
+                                
+                                <!-- Specialists Section -->
+                                <div x-show="showSpecialists" x-transition:enter.duration.300ms x-transition:leave.duration.200ms class="mt-3">
+                                    <h6 class="text-primary mb-3">Our Dental Specialists:</h6>
+                                    <div class="specialist-item">
+                                        <div class="d-flex align-items-center">
+                                            <img src="https://via.placeholder.com/50" class="rounded-circle doctor-img me-3" alt="Doctor">
+                                            <div>
+                                                <p class="specialist-name mb-0">DR ANNA MASUROH BT OSMAN</p>
+                                                <small class="specialist-title">Senior Dental Surgeon</small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="specialist-item">
+                                        <div class="d-flex align-items-center">
+                                            <img src="s_loshini.jpg" class="rounded-circle doctor-img me-3" alt="DR. S. LOSHINI">
+                                            <div>
+                                                <p class="specialist-name mb-0">DR. S. LOSHINI SIVANESON</p>
+                                                <small class="specialist-title">Orthodontist</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-auto d-flex justify-content-between pt-3">
+                                    <button @click="expanded = !expanded" class="btn btn-primary btn-sm">
+                                        <span x-text="expanded ? 'Read Less' : 'Read More'"></span>
+                                    </button>
+                                    <button @click="showSpecialists = !showSpecialists" class="btn btn-outline-info btn-sm">
+                                        <span x-text="showSpecialists ? 'Hide Specialists' : 'View Specialists'"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Psychiatry Card -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm" x-data="{ expanded: false, showSpecialists: false }">
+                            <div class="image-container">
+                                <img src="psychiatry.jpg" class="card-img-top img-fluid" alt="Psychiatry Service">
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title text-info">Psychiatry Services</h5>
+                                <p class="card-text" :class="{ 'text-truncate': !expanded }" x-show="!expanded">
+                                    Confidential mental health care with personalized support for emotional and psychological well-being.
+                                </p>
+                                <p class="card-text" x-show="expanded" x-transition:enter.duration.500ms>
+                                    Our psychiatry department provides compassionate and confidential mental health care for individuals of all ages.
+                                    We offer comprehensive assessments, diagnosis, and treatment for a wide range of conditions, including depression,
+                                    anxiety, bipolar disorder, and schizophrenia. Our multidisciplinary team uses evidence-based therapies and medication
+                                    management to support each patient's mental well-being.
+                                </p>
+                                
+                                <!-- Specialists Section -->
+                                <div x-show="showSpecialists" x-transition:enter.duration.300ms x-transition:leave.duration.200ms class="mt-3">
+                                    <h6 class="text-primary mb-3">Our Psychiatry Specialists:</h6>
+                                    <div class="specialist-item">
+                                        <div class="d-flex align-items-center">
+                                            <img src="fatina.jpg" class="rounded-circle doctor-img me-3" alt="DR FATINA">
+                                            <div>
+                                                <p class="specialist-name mb-0">DR FATINA ANHA BT FAZID</p>
+                                                <small class="specialist-title">Consultant Psychiatrist</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="specialist-item">
+                                        <div class="d-flex align-items-center">
+                                            <img src="nurul_hana.jpg" class="rounded-circle doctor-img me-3" alt="DR.NURUL HANA">
+                                            <div>
+                                                <p class="specialist-name mb-0">DR.NURUL HANA BINTI HUSAIN</p>
+                                                <small class="specialist-title">Clinical Psychologist</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-auto d-flex justify-content-between pt-3">
+                                    <button @click="expanded = !expanded" class="btn btn-primary btn-sm">
+                                        <span x-text="expanded ? 'Read Less' : 'Read More'"></span>
+                                    </button>
+                                    <button @click="showSpecialists = !showSpecialists" class="btn btn-outline-info btn-sm">
+                                        <span x-text="showSpecialists ? 'Hide Specialists' : 'View Specialists'"></span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Dental Card -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 shadow-sm" x-data="{ expanded: false, showSpecialists: false }">
-                    <div class="image-container">
-                        <img src="pediatrics.jpg" class="card-img-top img-fluid" alt="Dental Service">
-                    </div>
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title text-info">Dental</h5>
-                        <p class="card-text" :class="{ 'text-truncate': !expanded }" x-show="!expanded">
-                            Comprehensive oral care including check-ups, cleanings, and cosmetic treatments for healthy smiles.
-                        </p>
-                        <p class="card-text" x-show="expanded" x-transition:enter.duration.500ms>
-                            Our dental services focus on maintaining optimal oral health through preventive, restorative, and cosmetic
-                            care. We offer routine check-ups, cleanings, fillings, extractions, root canals, and teeth whitening. With
-                            advanced equipment and skilled dental professionals, we ensure a comfortable and hygienic experience for
-                            every patient.
-                        </p>
-                        
-                        <!-- Specialists Section -->
-                        <div x-show="showSpecialists" x-transition:enter.duration.300ms x-transition:leave.duration.200ms class="mt-3">
-                            <h6 class="text-primary mb-3">Our Dental Specialists:</h6>
-                            <div class="specialist-item">
-                                <div class="d-flex align-items-center">
-                                    <img src="https://via.placeholder.com/50" class="rounded-circle doctor-img me-3" alt="Doctor">
-                                    <div>
-                                        <p class="specialist-name mb-0">DR ANNA MASUROH BT OSMAN</p>
-                                        <small class="specialist-title">Senior Dental Surgeon</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="specialist-item">
-                                <div class="d-flex align-items-center">
-                                    <img src="https://via.placeholder.com/50" class="rounded-circle doctor-img me-3" alt="Doctor">
-                                    <div>
-                                        <p class="specialist-name mb-0">DR. S. LOSHINI SIVANESON</p>
-                                        <small class="specialist-title">Orthodontist</small>
-                                    </div>
+            <!-- Facilities Section -->
+            <section id="facilities" class="py-5 bg-light">
+                <div class="container">
+                    <h2 class="text-center mb-5">Our Facilities</h2>
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="card h-100 shadow">
+                                <img src="operating-room.jpg" class="card-img-top" alt="Operating Room">
+                                <div class="card-body">
+                                    <h5 class="card-title">Operating Rooms</h5>
+                                    <p class="card-text">State-of-the-art surgical suites with advanced technology.</p>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="mt-auto d-flex justify-content-between pt-3">
-                            <button @click="expanded = !expanded" class="btn btn-primary btn-sm">
-                                <span x-text="expanded ? 'Read Less' : 'Read More'"></span>
-                            </button>
-                            <button @click="showSpecialists = !showSpecialists" class="btn btn-outline-info btn-sm">
-                                <span x-text="showSpecialists ? 'Hide Specialists' : 'View Specialists'"></span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Psychiatry Card -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 shadow-sm" x-data="{ expanded: false, showSpecialists: false }">
-                    <div class="image-container">
-                        <img src="psychiatry.jpg" class="card-img-top img-fluid" alt="Psychiatry Service">
-                    </div>
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title text-info">Psychiatry Services</h5>
-                        <p class="card-text" :class="{ 'text-truncate': !expanded }" x-show="!expanded">
-                            Confidential mental health care with personalized support for emotional and psychological well-being.
-                        </p>
-                        <p class="card-text" x-show="expanded" x-transition:enter.duration.500ms>
-                            Our psychiatry department provides compassionate and confidential mental health care for individuals of all ages.
-                            We offer comprehensive assessments, diagnosis, and treatment for a wide range of conditions, including depression,
-                            anxiety, bipolar disorder, and schizophrenia. Our multidisciplinary team uses evidence-based therapies and medication
-                            management to support each patient's mental well-being.
-                        </p>
-                        
-                        <!-- Specialists Section -->
-                        <div x-show="showSpecialists" x-transition:enter.duration.300ms x-transition:leave.duration.200ms class="mt-3">
-                            <h6 class="text-primary mb-3">Our Psychiatry Specialists:</h6>
-                            <div class="specialist-item">
-                                <div class="d-flex align-items-center">
-                                    <img src="https://via.placeholder.com/50" class="rounded-circle doctor-img me-3" alt="Doctor">
-                                    <div>
-                                        <p class="specialist-name mb-0">DR FATINA ANHA BT FAZID</p>
-                                        <small class="specialist-title">Consultant Psychiatrist</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="specialist-item">
-                                <div class="d-flex align-items-center">
-                                    <img src="https://via.placeholder.com/50" class="rounded-circle doctor-img me-3" alt="Doctor">
-                                    <div>
-                                        <p class="specialist-name mb-0">DR.NURUL HANA BINTI HUSAIN</p>
-                                        <small class="specialist-title">Clinical Psychologist</small>
-                                    </div>
+                        <div class="col-md-4">
+                            <div class="card h-100 shadow">
+                                <img src="lab.jpg" class="card-img-top" alt="Laboratory">
+                                <div class="card-body">
+                                    <h5 class="card-title">Diagnostic Lab</h5>
+                                    <p class="card-text">Fully equipped laboratory for comprehensive testing.</p>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="mt-auto d-flex justify-content-between pt-3">
-                            <button @click="expanded = !expanded" class="btn btn-primary btn-sm">
-                                <span x-text="expanded ? 'Read Less' : 'Read More'"></span>
-                            </button>
-                            <button @click="showSpecialists = !showSpecialists" class="btn btn-outline-info btn-sm">
-                                <span x-text="showSpecialists ? 'Hide Specialists' : 'View Specialists'"></span>
-                            </button>
+                        <div class="col-md-4">
+                            <div class="card h-100 shadow">
+                                <img src="pharmacy.jpg" class="card-img-top" alt="Pharmacy">
+                                <div class="card-body">
+                                    <h5 class="card-title">Pharmacy</h5>
+                                    <p class="card-text">In-house pharmacy for convenient medication access.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <!-- Facilities Section -->
-    <section id="facilities" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center mb-5">Our Facilities</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card h-100 shadow">
-                        <img src="operating-room.jpg" class="card-img-top" alt="Operating Room">
-                        <div class="card-body">
-                            <h5 class="card-title">Operating Rooms</h5>
-                            <p class="card-text">State-of-the-art surgical suites with advanced technology.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 shadow">
-                        <img src="lab.jpg" class="card-img-top" alt="Laboratory">
-                        <div class="card-body">
-                            <h5 class="card-title">Diagnostic Lab</h5>
-                            <p class="card-text">Fully equipped laboratory for comprehensive testing.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 shadow">
-                        <img src="pharmacy.jpg" class="card-img-top" alt="Pharmacy">
-                        <div class="card-body">
-                            <h5 class="card-title">Pharmacy</h5>
-                            <p class="card-text">In-house pharmacy for convenient medication access.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
     <footer class="bg-dark text-white text-center py-4">
         <div class="container">
-            <p class="mb-0">&copy; 2025 Hospital ... All Rights Reserved.</p>
+            <p class="mb-0">&copy; 2025 Hospital HelloDoctor All Rights Reserved.</p>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
