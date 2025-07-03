@@ -172,154 +172,393 @@
 </head>
 <body>
     <div class="container py-5" x-data="appointmentForm">
-        <h1 class="mb-4 text-center">Make An Appointment</h1>
+        <h6 class="mb-4 fw-bold">
+           If You Have Any Queries Or Need Assistance During About Your
+           Appointment, Please Let Us Know.
+        </h6>
 
         <form @submit.prevent="submitForm">
-            <!-- Specialisation and Doctor Section -->
-            <div class="form-section">
-                <h3 class="form-title">Doctor Information</h3>
-                
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <label for="specialisation" class="form-label">Specialization:<span class="text-danger">*</span></label>
-                        <select class="form-select" id="specialisation" x-model="form.specialisation" required>
-                            <option value="">Select specialization</option>
-                            <option value="cardiology">Cardiology</option>
-                            <option value="dental">Dental</option>
-                            <option value="psychiatry">Psychiatry</option>
-                        </select>
+           <!-- Doctor Information Section -->
+           <div class="form-section">
+              <h3 class="form-title">
+                 <div class="alert alert-primary">
+                    <strong>Doctor Information</strong>
+                 </div>
+              </h3>
+
+              <div class="row mb-3">
+                 <div class="col-md-6">
+                    <label for="specialisation" class="form-label"
+                       >Specialization:<span class="text-danger"
+                          >*</span
+                       ></label
+                    >
+                    <select
+                       class="form-select"
+                       id="specialisation"
+                       x-model="form.specialisation"
+                       @change="fetchAvailableSlots()"
+                       required>
+                       <option value="">Select specialization</option>
+                       <option value="cardiology">Cardiology</option>
+                       <option value="dental">Dental</option>
+                       <option value="psychiatry">Psychiatry</option>
+                    </select>
+                 </div>
+
+                 <div class="col-md-6">
+                    <label for="doctor" class="form-label"
+                       >Doctor Name:<span class="text-danger">*</span></label
+                    >
+                    <select
+                       class="form-select"
+                       id="doctor"
+                       x-model="form.doctor"
+                       @change="fetchAvailableSlots()"
+                       required>
+                       <option value="">Select doctor</option>
+                       <template
+                          x-for="doctor in filteredDoctors"
+                          :key="doctor.id">
+                          <option
+                             :value="doctor.id"
+                             x-text="doctor.name"></option>
+                       </template>
+                    </select>
+                 </div>
+              </div>
+           </div>
+
+           <!-- Date and Time Section with Real-Time Availability -->
+           <div class="form-section">
+              <h3 class="form-title">
+                 <div class="alert alert-primary">
+                    <strong>Date & Time</strong>
+                 </div>
+              </h3>
+
+              <div class="row">
+                 <div class="col-md-6 mb-3">
+                    <label for="appointmentDate" class="form-label"
+                       >Date:<span class="text-danger">*</span></label
+                    >
+                    <input
+                       type="date"
+                       class="form-control"
+                       id="appointmentDate"
+                       x-model="form.date"
+                       :min="minDate"
+                       :max="maxDate"
+                       @change="fetchAvailableSlots()"
+                       required />
+                    <small class="text-muted"
+                       >Appointments available from
+                       <span x-text="minDate"></span> to
+                       <span x-text="maxDate"></span
+                    ></small>
+                 </div>
+
+                 <div class="col-md-6 mb-3">
+                    <label class="form-label"
+                       >Available Time Slots:<span class="text-danger"
+                          >*</span
+                       ></label
+                    >
+                    <div>
+                       <template
+                          x-for="slot in availableSlots"
+                          :key="slot.time">
+                          <span
+                             @click="selectTimeSlot(slot)"
+                             class="time-slot"
+                             :class="{
+                                    'available': slot.available,
+                                    'booked': !slot.available,
+                                    'selected': form.time === slot.time
+                                }"
+                             :title="slot.available ? 'Click to select' : 'Already booked'">
+                             <span x-text="formatTime(slot.time)"></span>
+                          </span>
+                       </template>
+
+                       <div
+                          x-show="availableSlots.length === 0 && form.doctor && form.date"
+                          class="text-danger">
+                          No available slots for this date. Please try another
+                          date.
+                       </div>
                     </div>
-                    
-                    <div class="col-md-6">
-                        <label for="doctor" class="form-label">Doctor Name:<span class="text-danger">*</span></label>
-                        <select class="form-select" id="doctor" x-model="form.doctor" required>
-                            <option value="">Select doctor</option>
-                            <template x-for="doctor in filteredDoctors" :key="doctor.id">
-                                <option :value="doctor.id" x-text="doctor.name"></option>
-                            </template>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Date and Time Section -->
-            <div class="form-section">
-                <h3 class="form-title">Select date and time</h3>
-                
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="appointmentDate" class="form-label">Date:<span class="text-danger">*</span></label>
-                        <input type="date" class="form-control" id="appointmentDate" x-model="form.date" required>
-                    </div>
-                    
-                    <div class="col-md-6 mb-3">
-                        <label for="appointmentTime" class="form-label">Time:<span class="text-danger">*</span></label>
-                        <select class="form-select" id="appointmentTime" x-model="form.time" required>
-                            <option value="">Select time</option>
-                            <option value="09:00">09:00 AM</option>
-                            <option value="10:00">10:00 AM</option>
-                            <option value="11:00">11:00 AM</option>
-                            <option value="14:00">02:00 PM</option>
-                            <option value="15:00">03:00 PM</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Patient Details Section -->
-            <div class="form-section">
-                <h3 class="form-title">Patient's Details</h3>
-                
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <label for="patientName" class="form-label">Name:<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="patientName" x-model="form.patientName" placeholder="e.g: Muhammad Daniel bin Isnin" required>
-                    </div>
-                    
-                    <div class="col-md-6">
-                        <label for="phone" class="form-label">Phone Number:<span class="text-danger">*</span></label>
-                        <input type="tel" class="form-control" id="phone" x-model="form.phone" required>
-                    </div>
-                </div>
-                
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <label for="idNumber" class="form-label">NRIC / Passport no:<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="idNumber" x-model="form.idNumber" placeholder="xxxxxx-xx-xxxx" required>
-                    </div>
-                    
-                    <div class="col-md-6">
-                        <label for="gender" class="form-label">Gender:<span class="text-danger">*</span></label>
-                        <select class="form-select" id="gender" x-model="form.gender" required>
-                            <option value="">Select gender</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                        </select>
-                    </div>
-                </div>
-                
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email:<span class="text-danger">*</span></label>
-                    <input type="email" class="form-control" id="email" x-model="form.email" placeholder="xxxx@gmail.com" required>
-                </div>
-            </div>
-            <div class="alert alert-warning">
-                <strong>Notes:</strong> Please ensure all information is correct before submitting.
-            </div>
-            <button type="submit" class="btn btn-success btn-lg">Submit</button>
+                    <input type="hidden" x-model="form.time" required />
+                 </div>
+              </div>
+           </div>
+
+           <!-- Patient Details Section -->
+           <div class="form-section">
+              <h3 class="form-title">
+                 <div class="alert alert-primary">
+                    <strong>Patient's Details</strong>
+                 </div>
+              </h3>
+
+              <div class="row mb-3">
+                 <div class="col-md-6">
+                    <label for="patientName" class="form-label"
+                       >Name:<span class="text-danger">*</span></label
+                    >
+                    <input
+                       type="text"
+                       class="form-control"
+                       id="patientName"
+                       x-model="form.patientName"
+                       placeholder="e.g: Muhammad Daniel bin Isnin"
+                       required />
+                 </div>
+
+                 <div class="col-md-6">
+                    <label for="phone" class="form-label"
+                       >Phone Number:<span class="text-danger">*</span></label
+                    >
+                    <input
+                       type="tel"
+                       class="form-control"
+                       id="phone"
+                       x-model="form.phone"
+                       required />
+                 </div>
+              </div>
+
+              <div class="row mb-3">
+                 <div class="col-md-6">
+                    <label for="idNumber" class="form-label"
+                       >NRIC / Passport no:<span class="text-danger"
+                          >*</span
+                       ></label
+                    >
+                    <input
+                       type="text"
+                       class="form-control"
+                       id="idNumber"
+                       x-model="form.idNumber"
+                       placeholder="xxxxxx-xx-xxxx"
+                       required />
+                 </div>
+
+                 <div class="col-md-6">
+                    <label for="gender" class="form-label"
+                       >Gender:<span class="text-danger">*</span></label
+                    >
+                    <select
+                       class="form-select"
+                       id="gender"
+                       x-model="form.gender"
+                       required>
+                       <option value="">Select gender</option>
+                       <option value="male">Male</option>
+                       <option value="female">Female</option>
+                    </select>
+                 </div>
+              </div>
+
+              <div class="mb-3">
+                 <label for="email" class="form-label"
+                    >Email:<span class="text-danger">*</span></label
+                 >
+                 <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    x-model="form.email"
+                    placeholder="xxxx@gmail.com"
+                    required />
+              </div>
+           </div>
+
+           <div class="alert alert-warning">
+              <strong>Notes:</strong> Please ensure all information is correct
+              before submitting.
+           </div>
+
+           <!-- Added reset button next to submit button -->
+           <div class="d-flex justify-content-between">
+              <button
+                 type="button"
+                 class="btn btn-outline-secondary"
+                 @click="resetForm">
+                 Reset Form
+              </button>
+              <button type="submit" class="btn btn-success btn-lg">
+                 Submit
+              </button>
+           </div>
         </form>
-    </div>
-<script>
-    document.addEventListener('alpine:init', () => {
-      // Store for navigation state
-      Alpine.store('nav', {
-        open: false,
-        currentPage: 'home',
-        
-        toggle() {
-      this.open = !this.open
-        },
-        
-        isActive(page) {
-          return this.currentPage === page
-        }
-      })
-    })
-    document.addEventListener('alpine:init', () => {
-      Alpine.data('appointmentForm', () => ({
-        doctors: [
-          { id: 1, name: 'Dr. Ng Kin Fong (Consultant Cardiologist)', specialisation: 'cardiology' },
-          { id: 2, name: 'Dr. Md.Adhanizam Buyong (Senior Cardiologist)', specialisation: 'cardiology' },
-          { id: 3, name: 'Dr. Anna Masuroh Binti Osman (Senior Dental Surgeon)', specialisation: 'dental' },
-          { id: 4, name: 'Dr. S. Loshini Sivaneson (Orthodontist)', specialisation: 'dental' },
-          { id: 5, name: 'Dr. Fatina Anha Binti Fazid (Consultant Psychiatrist)', specialisation: 'psychiatry' },
-          { id: 6, name: 'Dr. Nurul Hana Binti Husain (Clinical Psychologist)', specialisation: 'psychiatry' }
-        ],      
-        form: {
-          specialisation: '',
-          doctor: '',
-          date: '',
-          time: '',
-          patientName: '',
-          phone: '+60- ',
-          idNumber: '',
-          gender: '',
-          email: ''
-        },
-        get filteredDoctors() {
-          if (!this.form.specialisation) return [];
-          return this.doctors.filter(
-          doctor => doctor.specialisation === this.form.specialisation
-          );
-        },
-        submitForm() {
-          // Here you would typically send the form data to a server
-          console.log('Form submitted:', this.form);
-          alert('Appointment request submitted!');
-        }
-      }));
-    });
-</script>
+     </div>
+
+     <script>
+        document.addEventListener("alpine:init", () => {
+           // Store for navigation state (unchanged)
+           Alpine.store("nav", {
+              open: false,
+              currentPage: "home",
+
+              toggle() {
+                 this.open = !this.open;
+              },
+
+              isActive(page) {
+                 return this.currentPage === page;
+              },
+           });
+
+           // Enhanced appointment form component with real-time availability
+           Alpine.data("appointmentForm", () => ({
+              doctors: [
+                 {
+                    id: 1,
+                    name: "Dr. Ng Kin Fong (Consultant Cardiologist)",
+                    specialisation: "cardiology",
+                 },
+                 {
+                    id: 2,
+                    name: "Dr. Md.Adhanizam Buyong (Senior Cardiologist)",
+                    specialisation: "cardiology",
+                 },
+                 {
+                    id: 3,
+                    name: "Dr. Anna Masuroh Binti Osman (Senior Dental Surgeon)",
+                    specialisation: "dental",
+                 },
+                 {
+                    id: 4,
+                    name: "Dr. S. Loshini Sivaneson (Orthodontist)",
+                    specialisation: "dental",
+                 },
+                 {
+                    id: 5,
+                    name: "Dr. Fatina Anha Binti Fazid (Consultant Psychiatrist)",
+                    specialisation: "psychiatry",
+                 },
+                 {
+                    id: 6,
+                    name: "Dr. Nurul Hana Binti Husain (Clinical Psychologist)",
+                    specialisation: "psychiatry",
+                 },
+              ],
+
+              // All possible time slots (in 24-hour format)
+              allTimeSlots: ["09:00", "10:00", "11:00", "14:00", "15:00"],
+
+              // Available slots will be populated based on doctor and date selection
+              availableSlots: [],
+
+              // Form data
+              form: {
+                 specialisation: "",
+                 doctor: "",
+                 date: "",
+                 time: "",
+                 patientName: "",
+                 phone: "+60- ",
+                 idNumber: "",
+                 gender: "",
+                 email: "",
+              },
+
+              // Date constraints (today to 3 months in future)
+              minDate: new Date().toISOString().split("T")[0],
+              maxDate: new Date(new Date().setMonth(new Date().getMonth() + 3))
+                 .toISOString()
+                 .split("T")[0],
+
+              /**
+               * Computed property to filter doctors by specialization
+               * Updates automatically when specialization changes
+               */
+              get filteredDoctors() {
+                 if (!this.form.specialisation) return [];
+                 return this.doctors.filter(
+                    (doctor) =>
+                       doctor.specialisation === this.form.specialisation
+                 );
+              },
+
+              /**
+               * Formats time from 24-hour to 12-hour format
+               * Example: "14:00" becomes "2:00 PM"
+               */
+              formatTime(time) {
+                 const [hours, minutes] = time.split(":");
+                 const period = hours >= 12 ? "PM" : "AM";
+                 const hours12 = hours % 12 || 12;
+                 return `${hours12}:${minutes} ${period}`;
+              },
+
+              /**
+               * Fetches available slots when doctor or date changes
+               * Simulates API call with setTimeout
+               * In real app, replace with actual API call to backend
+               */
+              fetchAvailableSlots() {
+                 if (!this.form.doctor || !this.form.date) {
+                    this.availableSlots = [];
+                    return;
+                 }
+
+                 // Simulate API call delay (300ms)
+                 setTimeout(() => {
+                    // Randomly mark some slots as booked for demonstration
+                    // In real app, this would come from your backend
+                    this.availableSlots = this.allTimeSlots.map((time) => ({
+                       time,
+                       available: Math.random() > 0.3, // 70% chance of being available
+                    }));
+                 }, 300);
+              },
+
+              /**
+               * Handles time slot selection
+               * Only allows selection of available slots
+               */
+              selectTimeSlot(slot) {
+                 if (slot.available) {
+                    this.form.time = slot.time;
+                 }
+              },
+
+              /**
+               * Resets the entire form to initial state
+               * Clears all fields and available slots
+               */
+              resetForm() {
+                 this.form = {
+                    specialisation: "",
+                    doctor: "",
+                    date: "",
+                    time: "",
+                    patientName: "",
+                    phone: "+60- ",
+                    idNumber: "",
+                    gender: "",
+                    email: "",
+                 };
+                 this.availableSlots = [];
+              },
+
+              /**
+               * Handles form submission
+               * In real app, would send data to server
+               */
+              submitForm() {
+                 // Here you would typically send the form data to a server
+                 console.log("Form submitted:", this.form);
+                 alert("Appointment request submitted!");
+
+                 // Optional: Reset form after submission
+                 // this.resetForm();
+              },
+           }));
+        });
+     </script>
 
   
 <footer class="footer pt-5" x-data="{ currentYear: new Date().getFullYear() }">

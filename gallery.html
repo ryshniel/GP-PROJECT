@@ -171,6 +171,7 @@
          </div>
       </nav>
       <!-- ni carousel untuk gallery -->
+      <!-- Fixed Carousel Section -->
       <div
          id="servicesCarousel"
          class="carousel slide carousel-fade"
@@ -180,15 +181,19 @@
                type="button"
                data-bs-target="#servicesCarousel"
                data-bs-slide-to="0"
-               class="active"></button>
+               class="active"
+               aria-current="true"
+               aria-label="Slide 1"></button>
             <button
                type="button"
                data-bs-target="#servicesCarousel"
-               data-bs-slide-to="1"></button>
+               data-bs-slide-to="1"
+               aria-label="Slide 2"></button>
             <button
                type="button"
                data-bs-target="#servicesCarousel"
-               data-bs-slide-to="2"></button>
+               data-bs-slide-to="2"
+               aria-label="Slide 3"></button>
          </div>
 
          <div class="carousel-inner">
@@ -200,8 +205,11 @@
                   alt="Healthcare Professionals" />
                <div
                   class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded p-1">
-                  <h2>Description 1</h2>
-                  <p>bla bla bla</p>
+                  <h2>State-of-the-Art Facilities</h2>
+                  <p>
+                     Our clinic features modern equipment and comfortable spaces
+                     for patient care
+                  </p>
                </div>
             </div>
             <div class="carousel-item" data-bs-interval="5000">
@@ -212,8 +220,11 @@
                   alt="Modern Facility" />
                <div
                   class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded p-1">
-                  <h2>desc 2</h2>
-                  <p>bli blu blop</p>
+                  <h2>Expert Medical Team</h2>
+                  <p>
+                     Our qualified doctors provide personalized care for all
+                     your health needs
+                  </p>
                </div>
             </div>
             <div class="carousel-item" data-bs-interval="5000">
@@ -224,40 +235,217 @@
                   alt="Caring Environment" />
                <div
                   class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded p-1">
-                  <h2>desc 3</h2>
-                  <p>bla bla bla</p>
+                  <h2>Compassionate Care</h2>
+                  <p>
+                     We prioritize patient comfort and well-being in all our
+                     services
+                  </p>
                </div>
             </div>
          </div>
 
+         <!-- Carousel Navigation Controls -->
          <button
             class="carousel-control-prev"
             type="button"
             data-bs-target="#servicesCarousel"
             data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
          </button>
          <button
             class="carousel-control-next"
             type="button"
             data-bs-target="#servicesCarousel"
             data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
          </button>
       </div>
 
-      <!-- link ke appointment page -->
-      <section id="appointment" class="py-5 bg-primary text-white">
-         <div class="container text-center">
-            <h2>Ready to Book Your Appointment?</h2>
-            <p class="lead mb-4">
-               Schedule your visit with our healthcare professionals today
-            </p>
-            <a href="#" class="btn btn-light btn-lg">Book Now</a>
+      <!-- Add this modal at the bottom (before the closing body tag) -->
+
+      <section class="gallery-section py-5">
+         <div class="container">
+            <h2 class="text-center mb-5">Gallery</h2>
+
+            <!-- 3x3 Grid Layout -->
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+               <!-- Card 1 -->
+               <div class="col">
+                  <div class="card h-100 service-card">
+                     <img
+                        src="gallery/consultation.jpg"
+                        class="card-img-top"
+                        style="height: 200px; object-fit: cover"
+                        alt="Psychology Consultation" />
+                     <div class="card-body">
+                        <h5 class="card-title">Psychology Consultation</h5>
+                        <p class="card-text">
+                           Here, in a space of trust and understanding, stories
+                           are shared, burdens are lightened, and the path to
+                           mental wellness begins with being truly heard.
+                        </p>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Card 2 -->
+               <div class="col">
+                  <div class="card h-100 service-card">
+                     <img
+                        src="gallery/medcheckup.jpg"
+                        class="card-img-top"
+                        style="height: 200px; object-fit: cover"
+                        alt="Cardiology Consultation" />
+                     <div class="card-body">
+                        <h5 class="card-title">Cardiology Consultation</h5>
+                        <p class="card-text">
+                           Specialized heart health evaluation with ECG
+                           interpretation and cardiovascular risk assessment.
+                        </p>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Card 3 -->
+               <div class="col">
+                  <div class="card h-100 service-card">
+                     <img
+                        src="gallery/dental cleaning.jpg"
+                        class="card-img-top"
+                        style="height: 200px; object-fit: cover"
+                        alt="Dental Cleaning" />
+                     <div class="card-body">
+                        <h5 class="card-title">Dental Cleaning</h5>
+                        <p class="card-text">
+                           Focused and gentle, our dental team is dedicated to
+                           restoring and maintaining your smile. It's more than
+                           a cleaning; it's about ensuring your comfort and
+                           health with meticulous, personalized care.
+                        </p>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Card 4 -->
+               <div class="col">
+                  <div class="card h-100 service-card">
+                     <img
+                        src="gallery/dental checkup.jpg"
+                        class="card-img-top"
+                        style="height: 200px; object-fit: cover"
+                        alt="Dental Checkup" />
+                     <div class="card-body">
+                        <h5 class="card-title">Dental Checkup</h5>
+                        <p class="card-text">
+                           Our dentist ensures every detail is perfect. This is
+                           where expertise meets empathy, creating a calm and
+                           reassuring environment for every patient in our
+                           chair.
+                        </p>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Card 5 -->
+               <div class="col">
+                  <div class="card h-100 service-card">
+                     <img
+                        src="gallery/drnotes.jpg"
+                        class="card-img-top"
+                        style="height: 200px; object-fit: cover"
+                        alt="Gentle Care" />
+                     <div class="card-body">
+                        <h5 class="card-title">Gentle Care</h5>
+                        <p class="card-text">
+                           Every word you share is treated with care, forming
+                           the foundation of a personalized treatment plan. This
+                           is where your story becomes a roadmap to wellness.
+                        </p>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Card 6 -->
+               <div class="col">
+                  <div class="card h-100 service-card">
+                     <img
+                        src="gallery/medresult.jpg"
+                        class="card-img-top"
+                        style="height: 200px; object-fit: cover"
+                        alt="Blood Tests" />
+                     <div class="card-body">
+                        <h5 class="card-title">Healthcare Decisions</h5>
+                        <p class="card-text">
+                           We take the time to walk you through your results,
+                           answering every question so you can be an active,
+                           informed partner in your own healthcare decisions
+                        </p>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Card 7 -->
+               <div class="col">
+                  <div class="card h-100 service-card">
+                     <img
+                        src="gallery/surgery.jpg"
+                        class="card-img-top"
+                        style="height: 200px; object-fit: cover"
+                        alt="Operating Theater" />
+                     <div class="card-body">
+                        <h5 class="card-title">Operating Theater</h5>
+                        <p class="card-text">
+                           In this critical space, our dedicated surgeons apply
+                           their skill and steady hands, committed entirely to
+                           your health and successful recovery.
+                        </p>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Card 8 -->
+               <div class="col">
+                  <div class="card h-100 service-card">
+                     <img
+                        src="gallery/prescription.jpg"
+                        class="card-img-top"
+                        style="height: 200px; object-fit: cover"
+                        alt="Prescription" />
+                     <div class="card-body">
+                        <h5 class="card-title">Prescription</h5>
+                        <p class="card-text">
+                           Tailored medication plans crafted with precision,
+                           ensuring you receive the best possible care.
+                        </p>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Card 9 -->
+               <div class="col">
+                  <div class="card h-100 service-card">
+                     <img
+                        src="gallery/quang-tri-nguyen-jmGrEfias_c-unsplash.jpg"
+                        class="card-img-top"
+                        style="height: 200px; object-fit: cover"
+                        alt="Laboratory Tests" />
+                     <div class="card-body">
+                        <h5 class="card-title">Laboratory Tests</h5>
+                        <p class="card-text">
+                           Our team works in sync, using precision tools to
+                           ensure the best possible outcomes for your oral
+                           health, keeping you comfortable every step of the
+                           way.
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
          </div>
       </section>
-      <div class="modal-backdrop fade show" x-show="showModal"></div>
-
+      <br />
       <!-- Alpine.js Data -->
       <script>
          // navbar js
@@ -345,139 +533,6 @@
             }));
          });
       </script>
-      <!-- Add this section right after the carousel (before the appointment section) -->
-      <section class="gallery-section py-5">
-         <div class="container">
-            <h2 class="text-center mb-5">Our Medical Facilities</h2>
-
-            <!-- Gallery Filter Buttons -->
-            <div class="text-center mb-4">
-               <button
-                  @click="activeTab = 'all'"
-                  class="btn btn-outline-primary mx-1"
-                  :class="{ 'active': activeTab === 'all' }">
-                  All Facilities
-               </button>
-               <button
-                  @click="activeTab = 'general'"
-                  class="btn btn-outline-primary mx-1"
-                  :class="{ 'active': activeTab === 'general' }">
-                  General
-               </button>
-               <button
-                  @click="activeTab = 'specialized'"
-                  class="btn btn-outline-primary mx-1"
-                  :class="{ 'active': activeTab === 'specialized' }">
-                  Specialized
-               </button>
-            </div>
-
-            <!-- Gallery Cards Grid -->
-            <div class="row g-4">
-               <template x-for="service in services" :key="service.id">
-                  <div
-                     class="col-md-4"
-                     x-show="activeTab === 'all' || activeTab === service.category">
-                     <div
-                        class="card service-card h-100 border-0 shadow-sm"
-                        @click="showModal = true; selectedService = service">
-                        <img
-                           :src="service.image"
-                           class="card-img-top"
-                           style="height: 200px; object-fit: cover"
-                           :alt="service.name" />
-                        <div class="card-body">
-                           <h5 class="card-title" x-text="service.name"></h5>
-                           <p
-                              class="card-text text-muted"
-                              x-text="service.description.substring(0, 100) + '...'"></p>
-                        </div>
-                        <div class="card-footer bg-transparent">
-                           <small class="text-muted">
-                              <i class="bi bi-clock"></i>
-                              <span x-text="service.duration"></span>
-                              • <i class="bi bi-currency-dollar"></i>
-                              <span x-text="service.price"></span>
-                           </small>
-                        </div>
-                     </div>
-                  </div>
-               </template>
-            </div>
-         </div>
-      </section>
-
-      <!-- Add this modal at the bottom (before the closing body tag) -->
-      <div
-         class="modal fade"
-         id="serviceModal"
-         tabindex="-1"
-         x-show="showModal"
-         @click.away="showModal = false">
-         <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content" @click.stop>
-               <div class="modal-header">
-                  <h5 class="modal-title" x-text="selectedService?.name"></h5>
-                  <button
-                     type="button"
-                     class="btn-close"
-                     @click="showModal = false"></button>
-               </div>
-               <div class="modal-body">
-                  <img
-                     :src="selectedService?.image"
-                     class="img-fluid rounded mb-3 modal-image"
-                     :alt="selectedService?.name" />
-                  <p x-text="selectedService?.description"></p>
-                  <div class="d-flex justify-content-between">
-                     <span
-                        class="badge bg-primary"
-                        x-text="selectedService?.category"></span>
-                     <div>
-                        <span class="me-3"
-                           ><i class="bi bi-clock"></i>
-                           <span x-text="selectedService?.duration"></span
-                        ></span>
-                        <span
-                           ><i class="bi bi-currency-dollar"></i>
-                           <span x-text="selectedService?.price"></span
-                        ></span>
-                     </div>
-                  </div>
-               </div>
-               <div class="modal-footer">
-                  <button
-                     type="button"
-                     class="btn btn-secondary"
-                     @click="showModal = false">
-                     Close
-                  </button>
-                  <a href="appointments.html" class="btn btn-primary"
-                     >Book Appointment</a
-                  >
-               </div>
-            </div>
-         </div>
-      </div>
-      <div class="container mt-3">
-         <h2>Aligning images</h2>
-         <p>
-            Use the float classes to float the image to the left or to the
-            right:
-         </p>
-         <img
-            src="paris.jpg"
-            class="float-start"
-            alt="Paris"
-            width="304"
-            height="236" />
-         <img
-            src="paris.jpg"
-            class="float-end"
-            alt="Paris"
-            width="304"
-            height="236" />
-      </div>
 
       <!-- Update the Alpine.js initialization at the bottom -->
       <script>
