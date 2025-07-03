@@ -1,0 +1,128 @@
+/* General Styling */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  background-color: #fefefe;
+  scroll-behavior: smooth;
+  padding-top: 70px;
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: dodgerblue;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 0;
+  min-height: 70px;
+}
+
+.navbar .navbar-brand {
+  color: #fff !important;
+  font-size: 24px;
+  font-weight: 700;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.navbar-nav > li > a {
+  color: #fff !important;
+  font-size: 18px;
+  font-weight: 600;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.navbar .navbar-brand:hover,
+.navbar-nav > li > a:hover {
+  background-color: #1976d2 !important;
+  color: #fff !important;
+}
+
+/* Hero Section */
+.hero {
+  padding: 140px 20px 100px;
+  background: linear-gradient(rgba(30,144,255,0.6), rgba(255,255,255,0.5)), url('images/hero.jpg') no-repeat center center;
+  background-size: cover;
+  color: white;
+}
+
+.hero h1 {
+  font-size: 42px;
+  font-weight: bold;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.hero .btn {
+  margin-top: 20px;
+}
+
+/* Sections */
+.section {
+  padding: 60px 0;
+  background-color: #fff;
+}
+
+.section:nth-child(even) {
+  background-color: #f4f4f4;
+}
+
+h2 {
+  margin-bottom: 30px;
+  color: dodgerblue;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+/* Button */
+.btn-primary {
+  background-color: dodgerblue;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #1976d2;
+}
+
+.btn-lg {
+  padding: 12px 30px;
+  font-size: 18px;
+  border-radius: 6px;
+}
+
+/* Footer */
+footer {
+  background-color: dodgerblue;
+  color: white;
+  padding: 15px 0;
+  margin-top: 40px;
+}
+
+/* Divider */
+.about-divider {
+  width: 60px;
+  border-top: 3px solid dodgerblue;
+  margin: 30px auto;
+}
+
+/* === Utility Classes === */
+
+/* Optional background utility */
+.bg-dodgerblue {
+  background-color: dodgerblue !important;
+}
+
+/* White text links */
+.text-white a,
+.text-white a.nav-link {
+  color: white !important;
+}
+
+/* Hover for white nav links */
+.text-white a.nav-link:hover {
+  color: #f0f0f0 !important;
+}
+
