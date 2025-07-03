@@ -69,7 +69,7 @@
     }
 
     .main h1 {
-      font-size: 45px;
+      font-size: 50px;
       margin-bottom: 10px;
       color: black;
     }
@@ -150,13 +150,15 @@
 
           <!-- About Us Dropdown -->
           <li class="nav-item dropdown px-2 text-dark fw-bold">
-            <a class="nav-link dropdown-toggle active" href="aboutus.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              About Us
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="meetourdoctor.html">Meet Our Doctor</a></li>
-            </ul>
+            <div class="d-flex align-items-center">
+              <a class="nav-link active" href="aboutus.html">About Us</a>
+              <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
+              <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                <li><a class="dropdown-item" href="doctor.html">Meet Our Doctor</a></li>
+              </ul>
+            </div>
           </li>
+
 
           <li class="nav-item px-2 text-dark fw-bold">
             <a class="nav-link" href="specialization.html">Specialization</a>
@@ -183,7 +185,7 @@
   <!-- Main Section -->
   <section class="main">
     <div>
-      <h1>About HelloDoctor</h1>
+      <h1><strong>About HelloDoctor</strong></h1>
       <p>
         Your health is our mission. We're here to make healthcare simple, fast, and accessible.
         Whether you're booking an appointment or checking your health updates, we bring medical
