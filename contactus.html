@@ -1,152 +1,521 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-  <title>CONTACT US</title>
-</head>
-<style>
-  nav {
-  justify-content: center;
-  }
-  h2 {
-    text-align: center;
-    margin-top: 20px;
-  }
-  p {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-  .accordion-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-  .accordion-item {
-    flex: 1;
-    min-width: 300px;
-  }
-  .card-header {
-    text-align: center;
-  }
-  .card-header a {
-    display: block;
-    width: 100%;
-  }
-</style>
-<body>
-<nav class="navbar navbar-expand-sm bg-primary justify-content-center redirection-bottom">
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="navbar-brand" href="#"><img src="icons/logo hellodoc.png" alt="Logo" style="width: 90px;" class="rounded-pill bg-dark"></a>
-    </li>
-    <li class="nav-item">
-      <a href="aboutus.html" src="aboutus.html"><img src="icons/book.svg"></img><a class="nav-link"></a></a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="service&facilities.html" src="service&facilities.html"><img src="icons/heart.svg"></img><a class="nav-link"></a></a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="gallery.html" src="gallery.html"><img src="icons/film.svg"></img><a class="nav-link"></a></a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="contactus.html" src="contactus.html"><img src="icons/phone.svg"></img><a class="nav-link"></a></a>
-    </li>
-    <li class="nav-item">
-      <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal" src="appointment.html">Book Appointment</button>
-    </li>
-  </ul>
-</nav>
-<br>
-<br>
-<br>
-<div class="container mt-3">
-  <!-- ada something sini -->
-  
-  <div class="accordion-container" id="accordion">
-    <div class="accordion-item">
-      <div class="card">
-        <div class="card-header">
-          <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
-            Location
-          </a>
-        </div>
-        <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
-          <div class="card-body">
-            nanti cari location.
-        </div>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link
+         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+         rel="stylesheet" />
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+      <script
+         src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+         defer></script>
+      <title>Contact Us</title>
+   </head>
+   <style>
+      :root {
+         --sky-blue: #48639c;
+         --beige: #ffdc7f;
+         --soft-blue: #6a9ab0;
+      }
+
+      nav {
+         justify-content: center;
+         background-color: var(--sky-blue);
+      }
+      body {
+         font-family: Arial, sans-serif;
+      }
+
+      footer {
+         background-color: var(--sky-blue);
+         color: white;
+      }
+      h2 {
+         text-align: center;
+         margin-top: 20px;
+      }
+      p {
+         text-align: center;
+         margin-bottom: 20px;
+      }
+      a {
+         text-decoration: none;
+         color: inherit;
+      }
+      a:hover {
+         color: var(--soft-blue);
+      }
+
+      /* styling for */
+      .accordion-container {
+         display: flex;
+         flex-wrap: wrap;
+         gap: 15px;
+         justify-content: center;
+      }
+      .accordion-item {
+         flex: 1 1 300px;
+         min-width: 400px;
+         transition: transform 0.3s ease;
+      }
+      .accordion-item:hover {
+         transform: translateY(-5px);
+      }
+
+      .accordion-item .card {
+         border-radius: 10px;
+         overflow: hidden;
+         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .accordion-item .card-header {
+         background-color: var(--sky-blue);
+         padding: 0;
+         border: none;
+      }
+      .accordion-item .card-body {
+         padding: 15px;
+         background-color: var(--beige);
+      }
+      .accordion-item .card-header button {
+         width: 100%;
+         padding: 16px;
+         color: white;
+         font-weight: bold;
+         text-align: center;
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+      }
+      .accordion-item .card-header button:not(.collapsed) {
+         background-color: var(--sky-blue);
+         color: white;
+      }
+
+      .accordion-item .card-header button::after {
+         content: "\F282"; /* Bootstrap chevron-down icon */
+         font-family: "bootstrap-icons";
+         font-size: 19.2px;
+         transition: transform 0.3s ease;
+      }
+
+      .accordion-item .card-header button:not(.collapsed)::after {
+         transform: rotate(180deg);
+      }
+
+      .accordion-item .card-body {
+         padding: 1.5rem;
+         background-color: rgba(
+            255,
+            220,
+            127,
+            0.2
+         ); /* Semi-transparent beige */
+         border-top: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      /* Navbar styling */
+      .navbar {
+         padding: 8px 16px;
+      }
+
+      .nav-item {
+         transition: transform 0.2s;
+      }
+
+      .nav-item:hover {
+         transform: translateY(-2px);
+      }
+
+      .nav-link {
+         position: relative;
+         padding: 8px 16px;
+      }
+
+      .nav-link.active {
+         font-weight: 600;
+      }
+
+      .nav-link.active::after {
+         content: "";
+         position: absolute;
+         bottom: 0;
+         left: 25%;
+         width: 50%;
+         height: 2px;
+         background-color: rgba(0, 0, 0, 0.8);
+      }
+
+      @media (max-width: 502px) {
+         .navbar-collapse {
+            padding: 16px 0;
+         }
+      }
+
+      /* styling untuk form */
+      .form-control {
+         margin-bottom: 10px;
+      }
+      .btn-success {
+         width: 100%;
+      }
+
+      /* for jumbotron styling */
+      .card-header {
+         background-color: var(--beige);
+         color: black;
+         text-align: center;
+         font-weight: bold;
+      }
+      input[type="fname"],
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="number"] {
+         background-color: gainsboro;
+         border: 1px solid black;
+         border-radius: 4px;
+         padding: 12px 16px;
+         width: 100%;
+         box-sizing: border-box;
+      }
+   </style>
+   <body>
+      <nav class="navbar navbar-expand-lg navbar-light" x-data>
+         <div class="container-fluid">
+            <!-- for phone display -->
+            <button
+               class="navbar-toggler mx-auto d-lg-none"
+               type="button"
+               data-bs-toggle="collapse"
+               data-bs-target="#navbarNav"
+               @click="$store.nav.toggle()">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Centered navigation items -->
+            <div
+               class="collapse navbar-collapse justify-content-center"
+               id="navbarNav">
+               <ul class="navbar-nav text-center">
+                  <li class="nav-item">
+                     <a class="navbar-brand"
+                        ><img
+                           src="icons/logo hellodoc.png"
+                           alt="Logo"
+                           style="width: 50px"
+                           class="rounded-pill"
+                     /></a>
+                  </li>
+                  <li class="nav-item px-2">
+                     <a
+                        class="nav-link"
+                        :class="{ 'active': $store.nav.isActive('home') }"
+                        href="home.html"
+                        >Home</a
+                     >
+                  </li>
+                  <li class="nav-item px-2 text-light fw-bold">
+                     <a
+                        class="nav-link"
+                        :class="{ 'active': $store.nav.isActive('about') }"
+                        href="aboutus.html"
+                        >About Us</a
+                     >
+                  </li>
+                  <li class="nav-item px-2 text-light fw-bold">
+                     <a
+                        class="nav-link"
+                        :class="{ 'active': $store.nav.isActive('specialization') }"
+                        href="service&facilities.html"
+                        >Specialization</a
+                     >
+                  </li>
+                  <li class="nav-item px-2 text-light fw-bold">
+                     <a
+                        class="nav-link"
+                        :class="{ 'active': $store.nav.isActive('gallery') }"
+                        href="gallery.html"
+                        >Gallery</a
+                     >
+                  </li>
+                  <li class="nav-item px-2 text-light fw-bold">
+                     <a
+                        class="nav-link"
+                        :class="{ 'active': $store.nav.isActive('contact') }"
+                        href="contactus.html"
+                        >Contact Us</a
+                     >
+                  </li>
+                  <li class="nav-item">
+                     <a rel="stylesheet" href="appointment.html">
+                        <button
+                           type="button"
+                           class="btn btn-warning fw-bold"
+                           data-bs-toggle="modal"
+                           data-bs-target="#myModal"
+                           src="appointment.html">
+                           Book Appointment
+                        </button>
+                     </a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <br />
+      <div class="container" x-data="{ activeAccordion: 'location' }">
+         <div class="accordion-container" id="accordion">
+            <!-- Location Accordion Item -->
+            <div class="accordion-item">
+               <div class="card">
+                  <div class="card-header">
+                     <button
+                        class="btn w-100"
+                        :class="{ 'collapsed': activeAccordion !== 'location' }"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne"
+                        @click="activeAccordion = activeAccordion === 'location' ? '' : 'location'">
+                        <h5 class="mb-0">LOCATION</h5>
+                     </button>
+                  </div>
+                  <div
+                     id="collapseOne"
+                     class="collapse"
+                     :class="{ 'show': activeAccordion === 'location' }"
+                     data-bs-parent="#accordion">
+                     <div class="card-body">
+                        <p>
+                           <i class="bi bi-geo-alt-fill me-2"></i> 117, Jalan SS
+                           20/10, Damansara Utama, 47400 Petaling Jaya, Selangor
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <!-- Email Accordion Item -->
+            <div class="accordion-item">
+               <div class="card">
+                  <div class="card-header">
+                     <button
+                        class="btn w-100"
+                        :class="{ 'collapsed': activeAccordion !== 'email' }"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo"
+                        @click="activeAccordion = activeAccordion === 'email' ? '' : 'email'">
+                        <h5 class="mb-0">OUR EMAIL</h5>
+                     </button>
+                  </div>
+                  <div
+                     id="collapseTwo"
+                     class="collapse"
+                     :class="{ 'show': activeAccordion === 'email' }"
+                     data-bs-parent="#accordion">
+                     <div class="card-body">
+                        <p>
+                           <i class="bi bi-envelope-fill me-2"></i>
+                           hellodoc@healthcare.com.my
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <!-- Phone Accordion Item -->
+            <div class="accordion-item">
+               <div class="card">
+                  <div class="card-header">
+                     <button
+                        class="btn w-100"
+                        :class="{ 'collapsed': activeAccordion !== 'phone' }"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree"
+                        @click="activeAccordion = activeAccordion === 'phone' ? '' : 'phone'">
+                        <h5 class="mb-0">PHONE NUMBER</h5>
+                     </button>
+                  </div>
+                  <div
+                     id="collapseThree"
+                     class="collapse"
+                     :class="{ 'show': activeAccordion === 'phone' }"
+                     data-bs-parent="#accordion">
+                     <div class="card-body">
+                        <p>
+                           <i class="bi bi-telephone-fill me-2"></i>
+                           +605 - 472 3333
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
       </div>
-    </div>
-  </div>
-<br>
-  <div class="accordion-item">
-      <div class="card">
-        <div class="card-header">
-          <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo">
-            Email Us
-          </a>
-        </div>
-        <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
-          <div class="card-body">
-            hellodoc@gmail.com
-          </div>
-        </div>
+      <br />
+      <div class="container mt-3 card-header">
+         <div class="mt-1 p-3 card-header text-dark rounded-pill">
+            <h2 class="accordion-container">Get In Touch</h2>
+            <p>
+               <strong
+                  >If you have any queries or need advice during your time with
+                  us, need to book or reschedule an appointment or cancel a
+                  treatment, please let us know</strong
+               >
+            </p>
+         </div>
       </div>
-    </div>
-<br>
-    <div class="accordion-item">
-      <div class="card">
-        <div class="card-header">
-          <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseThree">
-            Phone Number
-          </a>
-        </div>
-        <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
-          <div class="card-body">
-            +605 - 472 3333.
-          </div>
-        </div>
+      <div class="container mt-3">
+         <form action="/action_page.php">
+            <div class="mb-3 mt-3">
+               <label for="email">Full Name:</label>
+               <input
+                  type="fname"
+                  class="form-control"
+                  id="fname"
+                  placeholder="e.g: Hariz J bin Rabu"
+                  name="fname"
+                  required />
+            </div>
+            <div class="mb-3">
+               <label for="pwd">Email:</label>
+               <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="e.g: hellodoc@mail.com"
+                  name="email"
+                  required />
+            </div>
+            <div class="mb-3">
+               <label for="pwd">Phone No: </label>
+               <input
+                  type="number"
+                  class="form-control"
+                  id="phone"
+                  placeholder="e.g: 01x-xxx-xxxx"
+                  name="phone"
+                  required />
+            </div>
+            <div class="mb-3 mt-3">
+               <label for="comment">Messages:</label>
+               <textarea
+                  class="form-control"
+                  rows="7"
+                  id="comment"
+                  placeholder="Enter your message..."
+                  name="text"></textarea>
+            </div>
+            <input type="submit" class="btn btn-success" value="Send Message" />
+         </form>
       </div>
-    </div>
-  </div>
-</div>
-<br>
-<div class="container mt-3">
-  <div class="mt-1 p-3 bg-warning text-white rounded">
-    <h2>Get In Touch</h2> 
-    <p><strong>If you have any queries or need advice during your time with us, need to book or reschedule an appointment or cancel a treatment, please let us know</strong></p>
-  </div>
-</div>
-<div class="container mt-3">
-  <form action="/action_page.php">
-    <div class="mb-3 mt-3">
-      <label for="email">Full Name:</label>
-      <input type="fname" class="form-control" id="fname" placeholder="e.g: Hariz J bin Rabu" name="fname" required>
-    </div>
-    <div class="mb-3">
-      <label for="pwd">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="e.g: hellodoc@mail.com" name="email" required>
-    </div>
-    <div class="mb-3">
-      <label for="pwd">Phone No: </label>
-      <input type="number" class="form-control" id="phone" placeholder="e.g: 01x-xxx-xxxx" name="phone" required>
-    </div>
-    <div class="mb-3 mt-3">
-      <label for="comment">Messages:</label>
-      <textarea class="form-control" rows="7" id="comment" placeholder="Enter your message..." name="text"></textarea>
-    </div>
-      <input type="submit" class="btn btn-success" value="Send Message">
-  </form>
-</div>
-<br>
-<footer class="text-center py-4 bg-primary p-3 text-white">
-  <p class="mb-0">&copy; 2025 NAMA HOSPITAL. All Rights Reserved.</p>
-</footer>
-</body>
+      <br />
+      <script>
+         document.addEventListener("alpine:init", () => {
+            // Store for navigation state
+            Alpine.store("nav", {
+               open: false,
+               currentPage: "home",
+
+               toggle() {
+                  this.open = !this.open;
+               },
+
+               isActive(page) {
+                  return this.currentPage === page;
+               },
+            });
+         });
+      </script>
+      <footer
+         class="footer pt-5"
+         x-data="{ currentYear: new Date().getFullYear() }">
+         <div class="container">
+            <div class="row">
+               <!-- Quick Links -->
+               <div class="col-md-3 mb-4">
+                  <h5 class="mb-3 fw-bold">Quick Links</h5>
+                  <ul class="list-unstyled">
+                     <li class="mb-2"><a href="home.html">Home</a></li>
+                     <li class="mb-2">
+                        <a href="about.html">About Us</a>
+                     </li>
+                     <li class="mb-2">
+                        <a href="service&facilities.html">Specializations</a>
+                     </li>
+                     <li class="mb-2">
+                        <a href="doctors.html">Doctors</a>
+                     </li>
+                     <li class="mb-2">
+                        <a href="appointments.html">Appointments</a>
+                     </li>
+                  </ul>
+               </div>
+
+               <!-- Services -->
+               <div class="col-md-3 mb-4">
+                  <h5 class="mb-3 fw-bold">Specializations</h5>
+                  <ul class="list-unstyled">
+                     <li class="mb-2">
+                        <a href="service&facilities.html">Cardiology</a>
+                     </li>
+                     <li class="mb-2">
+                        <a href="service&facilities.html">Dental</a>
+                     </li>
+                     <li class="mb-2">
+                        <a href="service&facilities.html"
+                           >Psychiatry Services</a
+                        >
+                     </li>
+                  </ul>
+               </div>
+
+               <!-- Contact with Centered Logo -->
+               <div class="col-md-6 mb-4">
+                  <div
+                     class="d-flex flex-column align-items-center text-center">
+                     <!-- Centered Logo -->
+                     <div class="mb-3">
+                        <img
+                           src="icons/logo hellodoc.png"
+                           style="width: 80px"
+                           class="img-fluid" />
+                     </div>
+
+                     <address>
+                        <p>
+                           <i class="bi bi-geo-alt-fill me-2"></i> 117, Jalan SS
+                           20/10 Damansara Utama,<br />47400 Petaling Jaya,
+                           Selangor
+                        </p>
+                        <p>
+                           <i class="bi bi-telephone-fill me-2"></i>
+                           (605) 472-3333
+                        </p>
+                        <p>
+                           <i class="bi bi-envelope-fill me-2"></i>
+                           hellodoc@healthcare.com.my
+                        </p>
+                     </address>
+                  </div>
+               </div>
+            </div>
+
+            <div class="footer-divider pt-3 mt-3"></div>
+
+            <div class="row justify-content-center">
+               <div class="col-md-6 text-center mb-3">
+                  <p>
+                     &copy;
+                     <span x-text="currentYear"></span> HelloDoctor. All rights
+                     reserved.
+                  </p>
+               </div>
+            </div>
+         </div>
+      </footer>
+
+      <!-- Add this if not already in your head section -->
+      <link
+         rel="stylesheet"
+         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+   </body>
 </html>

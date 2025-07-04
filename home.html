@@ -1,31 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Theme Company</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HelloDoctor</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body class="bg-white text-dark">
 
   <style>
-    .logo {
-      font-size: 200px;
+    :root {
+        --sky-blue: #48639c;
+        --beige: #ffdc7f;
+        --soft-blue: #6a9ab0;
     }
-    @media screen and (max-width: 768px) {
-      .col-sm-4 {
-        text-align: center;
-        margin: 25px 0;
-  </style>
 
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm=8">
-        <h2>About Company Page</h2>
-        <h4>....</h4>
-        <p>...</p>
-        <button class="btn btn-default btn-lg">Get in Touch</button>
-      </div>
-</head>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    nav {
+        justify-content: center;
+        background-color: var(--sky-blue);
+    }
+
+    .navbar {
+        padding: 8px 16px;
+    }
+
+    .nav-item {
+        transition: transform 0.2s;
+    }
+
+    .nav-item:hover {
+        transform: translateY(-2px);
+    }
+
+    .nav-link {
+        position: relative;
+        padding: 8px 16px;
+        color: white !important;
+        text-decoration: none;
+    }
+
+    .nav-link.active {
+        font-weight: 600;
+    }
+
+    .nav-link.active::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 25%;
+        width: 50%;
+        height: 2px;
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+    footer {
+        background-color: #003366;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        margin-top: 60px;
+    }
+
+    .hero {
+      padding: 140px 20px 100px;
+      background: linear-gradient(
+        rgba(30, 144, 255, 0.6), 
+        rgba(255, 255, 255, 0.4)
+      ),
+      url('images/hero.jpg') no-repeat center center;
+      background-size: cover;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      backdrop-filter: blur(1px);
+    }
+
+    .hero .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(255,255,255,0.1), rgba(0,0,0,0.3));
+      z-index: 0;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: bold;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-top: 15px;
+    }
+
+    .z-1 {
+      position: relative;
+      z-index: 1;
+    }
+
+    #about-hero {
+      background: linear-gradient(rgba(30,144,255, 0.7), rgba(255,255,255, 0.3)), 
+                url('images/hero.jpg') no-repeat center center;
+      background-size: cover;
+      padding: 100px 0;
+    }
+
+    #about-hero h1 {
+      color: white;
+      font-weight: bold;
+      line-height: 1.3;
+    }
+
+    #about-hero .lead {
+      font-size: 1.1rem;
+      color: white;
+      margin-bottom: 1rem;
+    }
+  </style>
 <body>
-  <h1>Company</h1>
-  <p>We specialize in ....</p>
+    <nav class="navbar navbar-expand-lg navbar-light" x-data>
+        <div class="container-fluid">
+          <!-- for phone display -->
+          <button class="navbar-toggler mx-auto d-lg-none" 
+                  type="button" 
+                  data-bs-toggle="collapse" 
+                  data-bs-target="#navbarNav" 
+                  @click="$store.nav.toggle()">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <!-- Centered navigation items -->
+          <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav text-center">
+              <li class="nav-item">
+                <a class="navbar-brand"><img src="icons/logo hellodoc.png" alt="Logo" style="width: 50px;" class="rounded-pill"></a>
+              </li>
+              <li class="nav-item px-2">
+                <a class="nav-link" :class="{ 'active': $store.nav.isActive('home') }" href="home.html">Home</a>
+              </li>
+              <li class="nav-item px-2 text-light fw-bold">
+                <a class="nav-link" :class="{ 'active': $store.nav.isActive('about') }" href="aboutus.html">About Us</a>
+              </li>
+              <li class="nav-item px-2 text-light fw-bold">
+                <a class="nav-link" :class="{ 'active': $store.nav.isActive('specialization') }" href="service&facilities.html">Specialization</a>
+              </li>
+              <li class="nav-item px-2 text-light fw-bold">
+                <a class="nav-link" :class="{ 'active': $store.nav.isActive('gallery') }" href="gallery.html">Gallery</a>
+              </li>
+              <li class="nav-item px-2 text-light fw-bold">
+                <a class="nav-link" :class="{ 'active': $store.nav.isActive('contact') }" href="contactus.html">Contact Us</a>
+              </li>
+              <li class="nav-item">
+              <a rel="stylesheet" href="appointment.html">
+                <button type="button" class="btn btn-warning fw-bold" data-bs-toggle="modal" data-bs-target="#myModal" src="appointment.html">Book Appointment</button>
+              </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+<script>
+    document.addEventListener('alpine:init', () => {
+        // Store for navigation state
+        Alpine.store('nav', {
+        open: false,
+        currentPage: 'home',
+            
+        toggle() {
+            this.open = !this.open
+        },
+            
+        isActive(page) {
+            return this.currentPage === page
+        }
+        })
+    })
+</script>  
+</body>
+</html>
+
+<!-- Hero Section -->
+<header class="hero text-center position-relative">
+  <div class="overlay"></div>
+  <div class="container position-relative z-1">
+    <h1 class="animate__animated animate__fadeInDown animate__delay-1s">
+      Welcome to <span style="color: #ffd700;">HelloDoctor</span>
+    </h1>
+    <p class="animate__animated animate__fadeInUp animate__delay-2s">
+      Where Your Health is Our Priority
+    </p>
+  </div>
+</header>
+
+<!-- Hero About Us Section (KMC-style) -->
+<section id="about-hero" class="d-flex align-items-center text-white">
+  <div class="container">
+    <div class="row align-items-center">
+      
+      <!-- Big Heading Left -->
+      <div class="col-md-6 text-start">
+        <h1 class="fw-bold display-5 animate__animated animate__fadeInLeft">
+          We Are<br>Committed To<br>Providing<br><span style="color:#ffd700;">Exceptional Healthcare</span><br>Services.
+        </h1>
+      </div>
+      
+      <!-- Paragraph Content Right -->
+      <div class="col-md-6 animate__animated animate__fadeInRight">
+        <p class="lead">
+          Our modern medical facility is equipped with advanced technology and supported by a team of highly skilled healthcare professionals dedicated to ensuring your care.
+        </p>
+        <p class="lead">
+          At HelloDoctor, we understand that health goes beyond treatment — it's about trust, safety, and comfort. From preventive screenings to emergency and specialized care, we offer personalized medical services tailored to your unique needs.
+        </p>
+        <p class="lead">
+          Our commitment extends beyond treatment — it's about creating a welcoming environment that supports your healing and empowers your decisions. Whether you’re here for a quick consultation or a longer recovery journey, HelloDoctor is here with you.
+        </p>
+        <p class="lead">
+          Explore our site, meet our doctors, and book your appointment with ease — healthcare built around you starts now.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="section text-center bg-light">
+  <div class="container">
+    <h2><i class="fas fa-stethoscope"></i> Our Services</h2>
+    <div class="row mt-4">
+      <div class="col-md-4 mb-4">
+        <i class="fas fa-ambulance fa-2x"></i>
+        <h4>Accident & Emergency</h4>
+        <p>Open 24 hours, fully staffed with medical officers.</p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <i class="fas fa-syringe fa-2x"></i>
+        <h4>Operation Theatres</h4>
+        <p>Equipped for both major and minor surgeries.</p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <i class="fas fa-procedures fa-2x"></i>
+        <h4>General Ward</h4>
+        <p>Spacious 24-bed ward and HDU with air conditioning.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer pt-5" x-data="{ currentYear: new Date().getFullYear() }">
+    <div class="container">
+      <div class="row">
+        <!-- Quick Links -->
+        <div class="col-md-3 mb-4">
+          <h5 class="mb-3 fw-bold">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="home.html">Home</a></li>
+            <li class="mb-2"><a href="about.html">About Us</a></li>
+            <li class="mb-2"><a href="service&facilities.html">Specializations</a></li>
+            <li class="mb-2"><a href="doctors.html">Doctors</a></li>
+            <li class="mb-2"><a href="appointments.html">Appointments</a></li>
+          </ul>
+        </div>
+  
+        <!-- Services -->
+        <div class="col-md-3 mb-4">
+          <h5 class="mb-3 fw-bold">Specializations</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="service&facilities.html">Cardiology</a></li>
+            <li class="mb-2"><a href="service&facilities.html">Dental</a></li>
+            <li class="mb-2"><a href="service&facilities.html">Psychiatry Services</a></li>
+          </ul>
+        </div>
+  
+        <!-- Contact with Centered Logo -->
+        <div class="col-md-6 mb-4">
+          <div class="d-flex flex-column align-items-center text-center">
+            <!-- Centered Logo -->
+            <div class="mb-3">
+              <img src="icons/logo hellodoc.png" style="width: 80px;" class="img-fluid">
+            </div>
+            
+            <address>
+              <p>
+                <i class="bi bi-geo-alt-fill me-2"></i> 117, Jalan SS 20/10
+                Damansara Utama,<br />47400 Petaling Jaya, Selangor
+              </p>
+              <p>
+                <i class="bi bi-telephone-fill me-2"></i> (605)
+                472-3333
+              </p>
+              <p>
+                <i class="bi bi-envelope-fill me-2"></i>
+                hellodoc@healthcare.com.my
+              </p>
+            </address>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-divider pt-3 mt-3"></div>
+      
+      <div class="row justify-content-center">
+        <div class="col-md-6 text-center mb-3">
+          <p>
+            &copy; <span x-text="currentYear"></span> HelloDoctor. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>   
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
