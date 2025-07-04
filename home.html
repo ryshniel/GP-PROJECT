@@ -16,7 +16,7 @@
 
   <style>
     :root {
-        --sky-blue: #48639c;
+        --sky-blue: #003366;
         --beige: #ffdc7f;
         --soft-blue: #6a9ab0;
     }
@@ -29,6 +29,15 @@
     nav {
         justify-content: center;
         background-color: var(--sky-blue);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      }
+
+    a:hover {
+      color: var(--soft-blue);
     }
 
     .navbar {
@@ -46,7 +55,7 @@
     .nav-link {
         position: relative;
         padding: 8px 16px;
-        color: white !important;
+        color: white;;
         text-decoration: none;
     }
 
@@ -155,7 +164,7 @@
                 <a class="nav-link" :class="{ 'active': $store.nav.isActive('about') }" href="aboutus.html">About Us</a>
               </li>
               <li class="nav-item px-2 text-light fw-bold">
-                <a class="nav-link" :class="{ 'active': $store.nav.isActive('specialization') }" href="service&facilities.html">Specialization</a>
+                <a class="nav-link" :class="{ 'active': $store.nav.isActive('specialization') }" href="specialization.html">Specialization</a>
               </li>
               <li class="nav-item px-2 text-light fw-bold">
                 <a class="nav-link" :class="{ 'active': $store.nav.isActive('gallery') }" href="gallery.html">Gallery</a>

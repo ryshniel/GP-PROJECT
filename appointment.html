@@ -11,7 +11,7 @@
 <body>
 <style>
     :root {
-        --sky-blue: #48639c;
+        --sky-blue:#003366;
         --beige: #ffdc7f;
         --soft-blue: #6a9ab0;
     }
@@ -19,7 +19,14 @@
         nav {
             justify-content: center;
             background-color: var(--sky-blue);
-        }
+         }
+        a {
+         text-decoration: none;
+         color: inherit;
+         }
+         a:hover {
+         color: var(--soft-blue);
+         }
         .navbar {
             padding: 8px 16px;
         }
@@ -35,6 +42,8 @@
         .nav-link {
             position: relative;
             padding: 8px 16px;
+            color: white;;
+            text-decoration: none;
         }
 
         .nav-link.active {
@@ -131,7 +140,7 @@
                     <a
                         class="nav-link"
                         :class="{ 'active': $store.nav.isActive('specialization') }"
-                        href="service&facilities.html"
+                        href="specialization.html"
                         >Specialization</a
                     >
                 </li>
