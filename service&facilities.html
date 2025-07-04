@@ -21,23 +21,9 @@
             padding-top: 0;
          }
 
-         a {
-            text-decoration: none;
-            color: inherit;
-         }
-         a:hover {
-            color: var(--soft-blue);
-         }
-
          /* Navbar Styling - Blue Header */
          .navbar {
             background-color: #003366;
-
-         /* Navbar Styling - Blue Header */
-         .navbar {
-            background-color: #003366;
-            color: white;
-            text-decoration: none;
             border: none;
             border-radius: 0;
             margin-bottom: 0;
@@ -54,8 +40,6 @@
             color: white !important;
             font-weight: 600;
             padding: 0.5rem 1rem;
-            text-decoration: none;
-
          }
 
          .nav-link:hover {
@@ -155,7 +139,7 @@
 
          /* Footer */
          footer {
-            background-color: #003366;
+            background-color: dodgerblue;
             color: white;
             padding: 15px 0;
             margin-top: 40px;
@@ -227,6 +211,7 @@
    </head>
 
    <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="70">
+      <!-- Blue Navbar -->
       <nav class="navbar navbar-expand-lg navbar-dark" x-data>
          <div class="container-fluid">
             <a class="navbar-brand"
@@ -319,13 +304,14 @@
          <div class="container">
             <h2 class="text-center mb-5 text-primary">Our Specializations</h2>
             <div class="row g-4">
+               <!-- Cardiology Card -->
                <div class="col-md-6 col-lg-4">
                   <div
                      class="card h-100 shadow-sm"
                      x-data="{ expanded: false, showSpecialists: false }">
                      <div class="image-container">
                         <img
-                           src="specialization jpg/cardiology.jpg"
+                           src="cardiology.jpg"
                            class="card-img-top img-fluid"
                            alt="Cardiology Service" />
                      </div>
@@ -352,6 +338,7 @@
                            personalized and effective care.
                         </p>
 
+                        <!-- Specialists Section -->
                         <div
                            x-show="showSpecialists"
                            x-transition:enter.duration.300ms
@@ -364,9 +351,8 @@
                               <div class="d-flex align-items-center">
                                  <img
                                     src="doctor jpg/ng_kim.jpg"
-                                    class="rounded-circle doctor-img specialist-img me-3"
-                                    alt="DR.NG KIM
-                                 FONG" />
+                                    class="rounded-circle doctor-img me-3"
+                                    alt="DR.NG KIM FONG" />
                                  <div>
                                     <p class="specialist-name mb-0">
                                        DR. NG KIM FONG
@@ -381,8 +367,8 @@
                            <div class="specialist-item">
                               <div class="d-flex align-items-center">
                                  <img
-                                    src="doctor jpg/md_adhanizam.jpg"
-                                    class="rounded-circle doctor-img specialist-img me-3"
+                                    src="md_adhanizam.jpg"
+                                    class="rounded-circle doctor-img me-3"
                                     alt="DR.MD ADHANIZAM" />
                                  <div>
                                     <p class="specialist-name mb-0">
@@ -415,13 +401,14 @@
                   </div>
                </div>
 
+               <!-- Dental Card -->
                <div class="col-md-6 col-lg-4">
                   <div
                      class="card h-100 shadow-sm"
                      x-data="{ expanded: false, showSpecialists: false }">
                      <div class="image-container">
                         <img
-                           src="specialization jpg/pediatrics.jpg"
+                           src="pediatrics.jpg"
                            class="card-img-top img-fluid"
                            alt="Dental Service" />
                      </div>
@@ -448,6 +435,7 @@
                            experience for every patient.
                         </p>
 
+                        <!-- Specialists Section -->
                         <div
                            x-show="showSpecialists"
                            x-transition:enter.duration.300ms
@@ -459,8 +447,8 @@
                            <div class="specialist-item">
                               <div class="d-flex align-items-center">
                                  <img
-                                    src="doctor jpg/anna.jpg"
-                                    class="rounded-circle doctor-img specialist-img me-3"
+                                    src="https://via.placeholder.com/50"
+                                    class="rounded-circle doctor-img me-3"
                                     alt="Doctor" />
                                  <div>
                                     <p class="specialist-name mb-0">
@@ -476,10 +464,9 @@
                            <div class="specialist-item">
                               <div class="d-flex align-items-center">
                                  <img
-                                    src="doctor jpg/s_loshini.jpg"
-                                    class="rounded-circle doctor-img specialist-img me-3"
-                                    alt="DR. S.
-                                 LOSHINI" />
+                                    src="s_loshini.jpg"
+                                    class="rounded-circle doctor-img me-3"
+                                    alt="DR. S. LOSHINI" />
                                  <div>
                                     <p class="specialist-name mb-0">
                                        DR. S. LOSHINI SIVANESON
@@ -511,14 +498,13 @@
                   </div>
                </div>
 
+               <!-- Psychiatry Card -->
                <div class="col-md-6 col-lg-4">
                   <div
                      class="card h-100 shadow-sm"
                      x-data="{ expanded: false, showSpecialists: false }">
                      <div class="image-container">
                         <img
-                           src="specialization
-                        jpg/psychiatry.jpg"
                            src="psychiatry.jpg"
                            class="card-img-top img-fluid"
                            alt="Psychiatry Service" />
@@ -549,6 +535,7 @@
                            well-being.
                         </p>
 
+                        <!-- Specialists Section -->
                         <div
                            x-show="showSpecialists"
                            x-transition:enter.duration.300ms
@@ -560,8 +547,8 @@
                            <div class="specialist-item">
                               <div class="d-flex align-items-center">
                                  <img
-                                    src="doctor jpg/fatina.jpg"
-                                    class="rounded-circle doctor-img specialist-img me-3"
+                                    src="fatina.jpg"
+                                    class="rounded-circle doctor-img me-3"
                                     alt="DR FATINA" />
                                  <div>
                                     <p class="specialist-name mb-0">
@@ -576,8 +563,8 @@
                            <div class="specialist-item">
                               <div class="d-flex align-items-center">
                                  <img
-                                    src="doctor jpg/nurul_hana.jpg"
-                                    class="rounded-circle doctor-img specialist-img me-3"
+                                    src="nurul_hana.jpg"
+                                    class="rounded-circle doctor-img me-3"
                                     alt="DR.NURUL HANA" />
                                  <div>
                                     <p class="specialist-name mb-0">
@@ -613,6 +600,7 @@
          </div>
       </section>
 
+      <!-- Facilities Section -->
       <section id="facilities" class="py-5 bg-light">
          <div class="container">
             <h2 class="text-center mb-5">Our Facilities</h2>
@@ -620,10 +608,9 @@
                <div class="col-md-4">
                   <div class="card h-100 shadow">
                      <img
-                        src="specialization jpg/operating-room.jpg"
+                        src="operating-room.jpg"
                         class="card-img-top"
-                        alt="Operating
-                     Room" />
+                        alt="Operating Room" />
                      <div class="card-body">
                         <h5 class="card-title">Operating Rooms</h5>
                         <p class="card-text">
@@ -635,11 +622,7 @@
                </div>
                <div class="col-md-4">
                   <div class="card h-100 shadow">
-                     <img
-                        src="specialization jpg/lab.jpg"
-                        class="card-img-top"
-                        alt="Laboratory" />
-
+                     <img src="lab.jpg" class="card-img-top" alt="Laboratory" />
                      <div class="card-body">
                         <h5 class="card-title">Diagnostic Lab</h5>
                         <p class="card-text">
@@ -651,7 +634,7 @@
                <div class="col-md-4">
                   <div class="card h-100 shadow">
                      <img
-                        src="specialization jpg/pharmacy.jpg"
+                        src="pharmacy.jpg"
                         class="card-img-top"
                         alt="Pharmacy" />
                      <div class="card-body">
@@ -671,13 +654,14 @@
          x-data="{ currentYear: new Date().getFullYear() }">
          <div class="container">
             <div class="row">
+               <!-- Quick Links -->
                <div class="col-md-3 mb-4">
                   <h5 class="mb-3 fw-bold">Quick Links</h5>
                   <ul class="list-unstyled">
                      <li class="mb-2"><a href="home.html">Home</a></li>
                      <li class="mb-2"><a href="about.html">About Us</a></li>
                      <li class="mb-2">
-                        <a href="specialization.html">Specializations</a>
+                        <a href="service&facilities.html">Specializations</a>
                      </li>
                      <li class="mb-2"><a href="doctors.html">Doctors</a></li>
                      <li class="mb-2">
@@ -686,6 +670,7 @@
                   </ul>
                </div>
 
+               <!-- Services -->
                <div class="col-md-3 mb-4">
                   <h5 class="mb-3 fw-bold">Specializations</h5>
                   <ul class="list-unstyled">
@@ -703,9 +688,11 @@
                   </ul>
                </div>
 
+               <!-- Contact with Centered Logo -->
                <div class="col-md-6 mb-4">
                   <div
                      class="d-flex flex-column align-items-center text-center">
+                     <!-- Centered Logo -->
                      <div class="mb-3">
                         <img
                            src="icons/logo hellodoc.png"
