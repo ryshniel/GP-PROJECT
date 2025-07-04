@@ -92,6 +92,34 @@
         background-color: var(--sky-blue);
         color: white;
     }
+
+    /* time slot styling */
+    .time-slot {
+    cursor: pointer;
+    padding: 8px 12px;
+    margin: 4px;
+    border-radius: 4px;
+    display: inline-block;
+    transition: all 0.2s;
+    border: 1px solid #dee2e6;
+}
+
+.time-slot.available {
+    background-color: #d1e7dd;
+    border-color: #badbcc;
+}
+
+.time-slot.booked {
+    background-color: #f8d7da;
+    cursor: not-allowed;
+    border-color: #f1aeb5;
+}
+
+.time-slot.selected {
+    background-color: #0d6efd;
+    color: white;
+    border-color: #0b5ed7;
+}
 </style>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light" x-data>

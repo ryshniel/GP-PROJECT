@@ -12,210 +12,221 @@
          src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
       <style>
-         /* General Styling */
-         body {
-            font-family: "Segoe UI", sans-serif;
-            line-height: 1.6;
-            background-color: #fefefe;
-            scroll-behavior: smooth;
-            padding-top: 0;
-         }
+                  /* General Styling */
+                  body {
+                     font-family: "Segoe UI", sans-serif;
+                     line-height: 1.6;
+                     background-color: #fefefe;
+                     scroll-behavior: smooth;
+                     padding-top: 0;
+                  }
 
-         a {
-            text-decoration: none;
-            color: inherit;
-         }
-         a:hover {
-            color: var(--soft-blue);
-         }
+         <<<<<<< Updated upstream
+                  a {
+                     text-decoration: none;
+                     color: inherit;
+                  }
+                  a:hover {
+                     color: var(--soft-blue);
+                  }
 
-         /* Navbar Styling - Blue Header */
-         .navbar {
-            background-color: #003366;
-            border: none;
-            border-radius: 0;
-            margin-bottom: 0;
-            min-height: 70px;
-            padding: 0 1rem;
-         }
+                  /* Navbar Styling - Blue Header */
+                  .navbar {
+                     background-color: #003366;
+         =======
+                  /* Navbar Styling - Blue Header */
+                  .navbar {
+                     background-color: #003366;
+                     color: white;
+                     text-decoration: none;
+         >>>>>>> Stashed changes
+                     border: none;
+                     border-radius: 0;
+                     margin-bottom: 0;
+                     min-height: 70px;
+                     padding: 0 1rem;
+                  }
 
-         .navbar-brand img {
-            width: 50px;
-            border-radius: 50%;
-         }
+                  .navbar-brand img {
+                     width: 50px;
+                     border-radius: 50%;
+                  }
 
-         .nav-link {
-            color: white !important;
-            font-weight: 600;
-            padding: 0.5rem 1rem;
-            text-decoration: none;
-         }
+                  .nav-link {
+                     color: white !important;
+                     font-weight: 600;
+                     padding: 0.5rem 1rem;
+         <<<<<<< Updated upstream
+                     text-decoration: none;
+         =======
+         >>>>>>> Stashed changes
+                  }
 
-         .nav-link:hover {
-            color: #ffdc7f !important;
-         }
+                  .nav-link:hover {
+                     color: #ffdc7f !important;
+                  }
 
-         .nav-link.active {
-            position: relative;
-         }
+                  .nav-link.active {
+                     position: relative;
+                  }
 
-         .nav-link.active::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 25%;
-            width: 50%;
-            height: 2px;
-            background-color: white;
-         }
+                  .nav-link.active::after {
+                     content: "";
+                     position: absolute;
+                     bottom: 0;
+                     left: 25%;
+                     width: 50%;
+                     height: 2px;
+                     background-color: white;
+                  }
 
-         /* Book Appointment Button Styling */
-         .btn-appointment {
-            background-color: #ffdc7f;
-            color: #3a6d8c;
-            font-weight: 600;
-            border-radius: 30px;
-            padding: 0.5rem 1.5rem;
-            margin-left: 1rem;
-            transition: all 0.3s;
-            border: none;
-         }
+                  /* Book Appointment Button Styling */
+                  .btn-appointment {
+                     background-color: #ffdc7f;
+                     color: #3a6d8c;
+                     font-weight: 600;
+                     border-radius: 30px;
+                     padding: 0.5rem 1.5rem;
+                     margin-left: 1rem;
+                     transition: all 0.3s;
+                     border: none;
+                  }
 
-         .btn-appointment:hover {
-            background-color: #ffd15e;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-         }
+                  .btn-appointment:hover {
+                     background-color: #ffd15e;
+                     transform: translateY(-2px);
+                     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                  }
 
-         /* Hero Section */
-         .hero {
-            min-height: 400px;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(
-                  rgba(30, 144, 255, 0.6),
-                  rgba(255, 255, 255, 0.5)
-               ),
-               url("images/hero.jpg") no-repeat center center/cover;
-            color: white;
-            text-align: center;
-         }
+                  /* Hero Section */
+                  .hero {
+                     min-height: 400px;
+                     display: flex;
+                     align-items: center;
+                     background: linear-gradient(
+                           rgba(30, 144, 255, 0.6),
+                           rgba(255, 255, 255, 0.5)
+                        ),
+                        url("images/hero.jpg") no-repeat center center/cover;
+                     color: white;
+                     text-align: center;
+                  }
 
-         .hero-content {
-            background-color: rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
-            padding: 2rem;
-            max-width: 800px;
-            margin: 0 auto;
-         }
+                  .hero-content {
+                     background-color: rgba(0, 0, 0, 0.5);
+                     border-radius: 10px;
+                     padding: 2rem;
+                     max-width: 800px;
+                     margin: 0 auto;
+                  }
 
-         .hero h1 {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-         }
+                  .hero h1 {
+                     font-size: 2.5rem;
+                     font-weight: bold;
+                     margin-bottom: 1rem;
+                     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+                  }
 
-         .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-         }
+                  .hero p {
+                     font-size: 1.2rem;
+                     margin-bottom: 2rem;
+                     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+                  }
 
-         .hero .btn {
-            padding: 0.75rem 2rem;
-            font-size: 1.1rem;
-            border-radius: 30px;
-            font-weight: 600;
-         }
+                  .hero .btn {
+                     padding: 0.75rem 2rem;
+                     font-size: 1.1rem;
+                     border-radius: 30px;
+                     font-weight: 600;
+                  }
 
-         /* Sections */
-         .section {
-            padding: 60px 0;
-            background-color: #fff;
-         }
+                  /* Sections */
+                  .section {
+                     padding: 60px 0;
+                     background-color: #fff;
+                  }
 
-         .section:nth-child(even) {
-            background-color: #f4f4f4;
-         }
+                  .section:nth-child(even) {
+                     background-color: #f4f4f4;
+                  }
 
-         h2 {
-            margin-bottom: 30px;
-            color: dodgerblue;
-            font-size: 32px;
-            font-weight: 600;
-         }
+                  h2 {
+                     margin-bottom: 30px;
+                     color: dodgerblue;
+                     font-size: 32px;
+                     font-weight: 600;
+                  }
 
-         /* Footer */
-         footer {
-            background-color: #003366;
-            color: white;
-            padding: 15px 0;
-            margin-top: 40px;
-         }
+                  /* Footer */
+                  footer {
+                     background-color: #003366;
+                     color: white;
+                     padding: 15px 0;
+                     margin-top: 40px;
+                  }
 
-         /* Specialist Cards */
-         .card {
-            border: none;
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-         }
+                  /* Specialist Cards */
+                  .card {
+                     border: none;
+                     border-radius: 10px;
+                     overflow: hidden;
+                     transition: transform 0.3s;
+                     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                  }
 
-         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-         }
+                  .card:hover {
+                     transform: translateY(-5px);
+                     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                  }
 
-         .card-img-top {
-            height: 200px;
-            object-fit: cover;
-         }
+                  .card-img-top {
+                     height: 200px;
+                     object-fit: cover;
+                  }
 
-         /* Specialist Styles */
-         .specialist-container {
-            margin-top: 20px;
-         }
-         .specialist-card {
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            margin-bottom: 10px;
-            background: #f8f9fa;
-            border-radius: 5px;
-         }
-         .specialist-img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 15px;
-         }
-         .specialist-info {
-            flex-grow: 1;
-         }
-         .specialist-name {
-            font-weight: 600;
-            margin-bottom: 5px;
-            color: #333;
-         }
-         .specialist-title {
-            color: #6c757d;
-            font-size: 0.9em;
-         }
+                  /* Specialist Styles */
+                  .specialist-container {
+                     margin-top: 20px;
+                  }
+                  .specialist-card {
+                     display: flex;
+                     align-items: center;
+                     padding: 10px;
+                     margin-bottom: 10px;
+                     background: #f8f9fa;
+                     border-radius: 5px;
+                  }
+                  .specialist-img {
+                     width: 60px;
+                     height: 60px;
+                     border-radius: 50%;
+                     object-fit: cover;
+                     margin-right: 15px;
+                  }
+                  .specialist-info {
+                     flex-grow: 1;
+                  }
+                  .specialist-name {
+                     font-weight: 600;
+                     margin-bottom: 5px;
+                     color: #333;
+                  }
+                  .specialist-title {
+                     color: #6c757d;
+                     font-size: 0.9em;
+                  }
 
-         /* Responsive adjustments */
-         @media (max-width: 992px) {
-            .navbar-collapse {
-               padding: 1rem 0;
-            }
+                  /* Responsive adjustments */
+                  @media (max-width: 992px) {
+                     .navbar-collapse {
+                        padding: 1rem 0;
+                     }
 
-            .btn-appointment {
-               margin: 1rem 0 0 0;
-               width: 100%;
-            }
-         }
+                     .btn-appointment {
+                        margin: 1rem 0 0 0;
+                        width: 100%;
+                     }
+                  }
       </style>
    </head>
 
@@ -317,10 +328,10 @@
                      class="card h-100 shadow-sm"
                      x-data="{ expanded: false, showSpecialists: false }">
                      <div class="image-container">
-                        <img
-                           src="specialization jpg/cardiology.jpg"
-                           class="card-img-top img-fluid"
-                           alt="Cardiology Service" />
+                        <img <<<<<<< Updated upstream src="specialization
+                        jpg/cardiology.jpg" ======= src="cardiology.jpg" >>>>>>>
+                        Stashed changes class="card-img-top img-fluid"
+                        alt="Cardiology Service" />
                      </div>
                      <div class="card-body d-flex flex-column">
                         <h5 class="card-title text-info">Cardiology</h5>
@@ -355,10 +366,11 @@
                            </h6>
                            <div class="specialist-item">
                               <div class="d-flex align-items-center">
-                                 <img
-                                    src="doctor jpg/ng_kim.jpg"
-                                    class="rounded-circle doctor-img specialist-img me-3"
-                                    alt="DR.NG KIM FONG" />
+                                 <img <<<<<<< Updated upstream src="doctor
+                                 jpg/ng_kim.jpg" ======= src="ng_kim.jpg"
+                                 >>>>>>> Stashed changes class="rounded-circle
+                                 doctor-img specialist-img me-3" alt="DR.NG KIM
+                                 FONG" />
                                  <div>
                                     <p class="specialist-name mb-0">
                                        DR. NG KIM FONG
@@ -372,10 +384,11 @@
 
                            <div class="specialist-item">
                               <div class="d-flex align-items-center">
-                                 <img
-                                    src="doctor jpg/md_adhanizam.jpg"
-                                    class="rounded-circle doctor-img specialist-img me-3"
-                                    alt="DR.MD ADHANIZAM" />
+                                 <img <<<<<<< Updated upstream src="doctor
+                                 jpg/md_adhanizam.jpg" =======
+                                 src="md_adhanizam.jpg" >>>>>>> Stashed changes
+                                 class="rounded-circle doctor-img specialist-img
+                                 me-3" alt="DR.MD ADHANIZAM" />
                                  <div>
                                     <p class="specialist-name mb-0">
                                        DR. MD.ADHANIZAM BUYONG
@@ -412,10 +425,10 @@
                      class="card h-100 shadow-sm"
                      x-data="{ expanded: false, showSpecialists: false }">
                      <div class="image-container">
-                        <img
-                           src="specialization jpg/pediatrics.jpg"
-                           class="card-img-top img-fluid"
-                           alt="Dental Service" />
+                        <img <<<<<<< Updated upstream src="specialization
+                        jpg/pediatrics.jpg" ======= src="pediatrics.jpg" >>>>>>>
+                        Stashed changes class="card-img-top img-fluid"
+                        alt="Dental Service" />
                      </div>
                      <div class="card-body d-flex flex-column">
                         <h5 class="card-title text-info">Dental</h5>
@@ -450,10 +463,10 @@
                            </h6>
                            <div class="specialist-item">
                               <div class="d-flex align-items-center">
-                                 <img
-                                    src="doctor jpg/anna.jpg"
-                                    class="rounded-circle doctor-img specialist-img me-3"
-                                    alt="Doctor" />
+                                 <img <<<<<<< Updated upstream src="doctor
+                                 jpg/anna.jpg" ======= src="anna.jpg" >>>>>>>
+                                 Stashed changes class="rounded-circle
+                                 doctor-img specialist-img me-3" alt="Doctor" />
                                  <div>
                                     <p class="specialist-name mb-0">
                                        DR ANNA MASUROH BT OSMAN
@@ -467,10 +480,11 @@
 
                            <div class="specialist-item">
                               <div class="d-flex align-items-center">
-                                 <img
-                                    src="doctor jpg/s_loshini.jpg"
-                                    class="rounded-circle doctor-img specialist-img me-3"
-                                    alt="DR. S. LOSHINI" />
+                                 <img <<<<<<< Updated upstream src="doctor
+                                 jpg/s_loshini.jpg" ======= src="s_loshini.jpg"
+                                 >>>>>>> Stashed changes class="rounded-circle
+                                 doctor-img specialist-img me-3" alt="DR. S.
+                                 LOSHINI" />
                                  <div>
                                     <p class="specialist-name mb-0">
                                        DR. S. LOSHINI SIVANESON
@@ -507,10 +521,10 @@
                      class="card h-100 shadow-sm"
                      x-data="{ expanded: false, showSpecialists: false }">
                      <div class="image-container">
-                        <img
-                           src="specialization jpg/psychiatry.jpg"
-                           class="card-img-top img-fluid"
-                           alt="Psychiatry Service" />
+                        <img <<<<<<< Updated upstream src="specialization
+                        jpg/psychiatry.jpg" ======= src="psychiatry.jpg" >>>>>>>
+                        Stashed changes class="card-img-top img-fluid"
+                        alt="Psychiatry Service" />
                      </div>
                      <div class="card-body d-flex flex-column">
                         <h5 class="card-title text-info">
@@ -548,10 +562,11 @@
                            </h6>
                            <div class="specialist-item">
                               <div class="d-flex align-items-center">
-                                 <img
-                                    src="doctor jpg/fatina.jpg"
-                                    class="rounded-circle doctor-img specialist-img me-3"
-                                    alt="DR FATINA" />
+                                 <img <<<<<<< Updated upstream src="doctor
+                                 jpg/fatina.jpg" ======= src="fatina.jpg"
+                                 >>>>>>> Stashed changes class="rounded-circle
+                                 doctor-img specialist-img me-3" alt="DR FATINA"
+                                 />
                                  <div>
                                     <p class="specialist-name mb-0">
                                        DR FATINA ANHA BT FAZID
@@ -564,10 +579,11 @@
                            </div>
                            <div class="specialist-item">
                               <div class="d-flex align-items-center">
-                                 <img
-                                    src="doctor jpg/nurul_hana.jpg"
-                                    class="rounded-circle doctor-img specialist-img me-3"
-                                    alt="DR.NURUL HANA" />
+                                 <img <<<<<<< Updated upstream src="doctor
+                                 jpg/nurul_hana.jpg" =======
+                                 src="nurul_hana.jpg" >>>>>>> Stashed changes
+                                 class="rounded-circle doctor-img specialist-img
+                                 me-3" alt="DR.NURUL HANA" />
                                  <div>
                                     <p class="specialist-name mb-0">
                                        DR.NURUL HANA BINTI HUSAIN
@@ -608,10 +624,10 @@
             <div class="row g-4">
                <div class="col-md-4">
                   <div class="card h-100 shadow">
-                     <img
-                        src="specialization jpg/operating-room.jpg"
-                        class="card-img-top"
-                        alt="Operating Room" />
+                     <img <<<<<<< Updated upstream src="specialization
+                     jpg/operating-room.jpg" ======= src="operating-room.jpg"
+                     >>>>>>> Stashed changes class="card-img-top" alt="Operating
+                     Room" />
                      <div class="card-body">
                         <h5 class="card-title">Operating Rooms</h5>
                         <p class="card-text">
@@ -623,10 +639,14 @@
                </div>
                <div class="col-md-4">
                   <div class="card h-100 shadow">
+                     <<<<<<< Updated upstream
                      <img
                         src="specialization jpg/lab.jpg"
                         class="card-img-top"
                         alt="Laboratory" />
+                     =======
+                     <img src="lab.jpg" class="card-img-top" alt="Laboratory" />
+                     >>>>>>> Stashed changes
                      <div class="card-body">
                         <h5 class="card-title">Diagnostic Lab</h5>
                         <p class="card-text">
@@ -637,10 +657,9 @@
                </div>
                <div class="col-md-4">
                   <div class="card h-100 shadow">
-                     <img
-                        src="specialization jpg/pharmacy.jpg"
-                        class="card-img-top"
-                        alt="Pharmacy" />
+                     <img <<<<<<< Updated upstream src="specialization
+                     jpg/pharmacy.jpg" ======= src="pharmacy.jpg" >>>>>>>
+                     Stashed changes class="card-img-top" alt="Pharmacy" />
                      <div class="card-body">
                         <h5 class="card-title">Pharmacy</h5>
                         <p class="card-text">
