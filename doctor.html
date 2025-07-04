@@ -1,13 +1,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About Us</title>
+  <title>Meet Our Doctor</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <style>
     :root {
-      --sky-blue: #3a6d8c;
+      --sky-blue: #48639c;
       --beige: #ffdc7f;
       --soft-blue: #6a9ab0;
     }
@@ -27,7 +27,7 @@
     }
 
     .nav-link {
-      color: white !important;
+      color: black !important;
       position: relative;
       padding: 8px 16px;
       text-decoration: none;
@@ -42,13 +42,7 @@
     }
 
     .nav-link.active::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 25%;
-      width: 50%;
-      height: 2px;
-      background-color: rgba(255, 255, 255, 0.9);
+      display:none
     }
 
     .dropdown:hover .dropdown-menu {
@@ -139,6 +133,11 @@
     .btn-appointment:hover {
       background-color: #145c32;
     }
+
+    footer {
+         background-color: var(--sky-blue);
+         color: white;
+    }
   </style>
 </head>
 <body>
@@ -162,20 +161,19 @@
             <a class="nav-link" href="home.html">Home</a>
           </li>
 
-          <!-- About Us Dropdown -->
-          <li class="nav-item dropdown px-2 text-dark fw-bold">
-            <div class="d-flex align-items-center">
-                <a class="nav-link active" href="aboutus.html">About Us</a>
-                <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
-                <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
-                    <li><a class="dropdown-item" href="doctor.html">Meet Our Doctor</a></li>
-                </ul>
-            </div>
+          <!-- About Us with dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">
+              About Us
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="doctor.html">Meet Our Doctor</a></li>
+            </ul>
           </li>
 
 
           <li class="nav-item px-2 text-dark fw-bold">
-            <a class="nav-link" href="specialization.html">Specialization</a>
+            <a class="nav-link" href="service&facilities.html">Specialization</a>
           </li>
 
           <li class="nav-item px-2 text-dark fw-bold">
@@ -206,21 +204,21 @@
   <div class="category-box">
     <div class="category-header">Cardiology</div>
     <div class="doctor-card">
-      <img src="cardiology.jpg" class="doctor-img" alt="Cardiology">
+      <img src="ng.webp" class="doctor-img" alt="Cardiology">
       <div class="doctor-info">
         <div class="doctor-name">Dr. Ng Kim Fong (L)</div>
         <a href="appointment.html" class="btn-appointment">Book Appointment</a>
       </div>
     </div>
     <div class="doctor-card">
-      <img src="cardiology.jpg" class="doctor-img" alt="Cardiology">
+      <img src="md.jpg" class="doctor-img" alt="Cardiology">
       <div class="doctor-info">
         <div class="doctor-name">Dr. Md. Adhanizam Buyong (L)</div>
         <a href="appointment.html" class="btn-appointment">Book Appointment</a>
       </div>
     </div>
     <div class="doctor-card">
-      <img src="cardiology.jpg" class="doctor-img" alt="Cardiology">
+      <img src="lim.webp" class="doctor-img" alt="Cardiology">
       <div class="doctor-info">
         <div class="doctor-name">Dr. Lim Chen Hong (L)</div>
         <a href="appointment.html" class="btn-appointment">Book Appointment</a>
@@ -231,21 +229,21 @@
   <div class="category-box">
     <div class="category-header">Dental</div>
     <div class="doctor-card">
-      <img src="dental.jpg" class="doctor-img" alt="Dental">
+      <img src="anna.webp" class="doctor-img" alt="Dental">
       <div class="doctor-info">
         <div class="doctor-name">Dr. Anna Masuroh Bt Osman</div>
         <a href="appointment.html" class="btn-appointment">Book Appointment</a>
       </div>
     </div>
     <div class="doctor-card">
-      <img src="dental.jpg" class="doctor-img" alt="Dental">
+      <img src="s.loshini.jpg" class="doctor-img" alt="Dental">
       <div class="doctor-info">
         <div class="doctor-name">Dr. S. Loshini Sivaneson</div>
         <a href="appointment.html" class="btn-appointment">Book Appointment</a>
       </div>
     </div>
     <div class="doctor-card">
-      <img src="dental.jpg" class="doctor-img" alt="Dental">
+      <img src="mohamad.webp" class="doctor-img" alt="Dental">
       <div class="doctor-info">
         <div class="doctor-name">Dr. Mohamad Abu Zar B Abdul Halim (L)</div>
         <a href="appointment.html" class="btn-appointment">Book Appointment</a>
@@ -256,14 +254,14 @@
   <div class="category-box">
     <div class="category-header">Psychiatry</div>
     <div class="doctor-card">
-      <img src="psychiatry.jpg" class="doctor-img" alt="Psychiatry">
+      <img src="fatina.jpg" class="doctor-img" alt="Psychiatry">
       <div class="doctor-info">
         <div class="doctor-name">Dr. Fatina Anha Bt Fazid</div>
         <a href="appointment.html" class="btn-appointment">Book Appointment</a>
       </div>
     </div>
     <div class="doctor-card">
-      <img src="psychiatry.jpg" class="doctor-img" alt="Psychiatry">
+      <img src="nurul.webp" class="doctor-img" alt="Psychiatry">
       <div class="doctor-info">
         <div class="doctor-name">Dr. Nurul Hana Binti Husain</div>
         <a href="appointment.html" class="btn-appointment">Book Appointment</a>
@@ -274,21 +272,21 @@
   <div class="category-box">
     <div class="category-header">Dermatology</div>
     <div class="doctor-card">
-      <img src="dermatology.jpg" class="doctor-img" alt="Dermatology">
+      <img src="noor.jpg" class="doctor-img" alt="Dermatology">
       <div class="doctor-info">
         <div class="doctor-name">Dr. Noor Asmah Omar</div>
         <a href="appointment.html" class="btn-appointment">Book Appointment</a>
       </div>
     </div>
     <div class="doctor-card">
-      <img src="dermatology.jpg" class="doctor-img" alt="Dermatology">
+      <img src="joan.webp" class="doctor-img" alt="Dermatology">
       <div class="doctor-info">
         <div class="doctor-name">Dr. Joan Clara Dinshaw</div>
         <a href="appointment.html" class="btn-appointment">Book Appointment</a>
       </div>
     </div>
     <div class="doctor-card">
-      <img src="dermatology.jpg" class="doctor-img" alt="Dermatology">
+      <img src="wan.jpg" class="doctor-img" alt="Dermatology">
       <div class="doctor-info">
         <div class="doctor-name">Dr. Wan Azwani Binti Wan Wafiin</div>
         <a href="appointment.html" class="btn-appointment">Book Appointment</a>
@@ -299,23 +297,23 @@
   <div class="category-box">
     <div class="category-header">Clinical Audiology</div>
     <div class="doctor-card">
-      <img src="audiology.jpg" class="doctor-img" alt="Audiology">
+      <img src="renuga.jpg" class="doctor-img" alt="Audiology">
       <div class="doctor-info">
         <div class="doctor-name">Dr. Renuga A/P Ganason</div>
         <a href="appointment.html" class="btn-appointment">Book Appointment</a>
       </div>
     </div>
     <div class="doctor-card">
-      <img src="audiology.jpg" class="doctor-img" alt="Audiology">
+      <img src="tan.jpg" class="doctor-img" alt="Audiology">
       <div class="doctor-info">
         <div class="doctor-name">Dr. Tan Chin Hoek (L)</div>
         <a href="appointment.html" class="btn-appointment">Book Appointment</a>
       </div>
     </div>
     <div class="doctor-card">
-      <img src="audiology.jpg" class="doctor-img" alt="Audiology">
+      <img src="saravanan.jpg" class="doctor-img" alt="Audiology">
       <div class="doctor-info">
-        <div class="doctor-name">Dr. Saravanan Ramasamy</div>
+        <div class="doctor-name">Dr. Saravanan Ramasamy (L)</div>
         <a href="appointment.html" class="btn-appointment">Book Appointment</a>
       </div>
     </div>
@@ -324,24 +322,107 @@
   <div class="category-box">
     <div class="category-header">Clinical Psychology</div>
     <div class="doctor-card">
-      <img src="psychology.jpg" class="doctor-img" alt="Psychology">
+      <img src="siti.jpg" class="doctor-img" alt="Psychology">
       <div class="doctor-info">
         <div class="doctor-name">Dr. Siti Rafida Bt. Rahem</div>
         <a href="appointment.html" class="btn-appointment">Book Appointment</a>
       </div>
     </div>
     <div class="doctor-card">
-      <img src="psychology.jpg" class="doctor-img" alt="Psychology">
+      <img src="azlan.png" class="doctor-img" alt="Psychology">
       <div class="doctor-info">
-        <div class="doctor-name">Dr. Azlan Azha Musa</div>
+        <div class="doctor-name">Dr. Azlan Azha Musa (L)</div>
         <a href="appointment.html" class="btn-appointment">Book Appointment</a>
       </div>
     </div>
   </div>
 
   <!-- Footer -->
-  <footer>
-    <p class="mb-0">&copy; 2025 HelloDoctor. All Rights Reserved.</p>
+  <footer
+    class="footer pt-5"
+    x-data="{ currentYear: new Date().getFullYear() }">
+    <div class="container">
+      <div class="row">
+          <!-- Quick Links -->
+          <div class="col-md-3 mb-4">
+              <h5 class="mb-3 fw-bold">Quick Links</h5>
+              <ul class="list-unstyled">
+                  <li class="mb-2"><a href="home.html">Home</a></li>
+                  <li class="mb-2">
+                    <a href="about.html">About Us</a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="service&facilities.html">Specializations</a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="doctors.html">Doctors</a>
+                  </li>
+                  <li class="mb-2">
+                    <a href="appointments.html">Appointments</a>
+                  </li>
+              </ul>
+          </div>
+
+          <!-- Services -->
+          <div class="col-md-3 mb-4">
+              <h5 class="mb-3 fw-bold">Specializations</h5>
+              <ul class="list-unstyled">
+                  <li class="mb-2">
+                      <a href="service&facilities.html">Cardiology</a>
+                  </li>
+                  <li class="mb-2">
+                      <a href="service&facilities.html">Dental</a>
+                  </li>
+                  <li class="mb-2">
+                      <a href="service&facilities.html"
+                        >Psychiatry Services</a>
+                  </li>
+              </ul>
+          </div>
+
+          <!-- Contact with Centered Logo -->
+          <div class="col-md-6 mb-4">
+              <div
+                  class="d-flex flex-column align-items-center text-center">
+                  <!-- Centered Logo -->
+                  <div class="mb-3">
+                      <img
+                        src="icons/logo hellodoc.png"
+                        style="width: 80px"
+                        class="img-fluid" />
+                  </div>
+
+                  <address>
+                    <p>
+                        <i class="bi bi-geo-alt-fill me-2"></i> 117, Jalan SS
+                        20/10 Damansara Utama,<br />47400 Petaling Jaya,
+                        Selangor
+                    </p>
+                    <p>
+                        <i class="bi bi-telephone-fill me-2"></i>
+                        (605) 472-3333
+                    </p>
+                    <p>
+                        <i class="bi bi-envelope-fill me-2"></i>
+                        hellodoc@healthcare.com.my
+                    </p>
+                  </address>
+              </div>
+          </div>
+      </div>
+
+      <div class="footer-divider pt-3 mt-3"></div>
+
+          <div class="row justify-content-center">
+              <div class="col-md-6 text-center mb-3">
+                  <p>
+                    &copy;
+                    <span x-text="currentYear"></span> HelloDoctor. All rights
+                    reserved.
+                  </p>
+              </div>
+          </div>
+      </div>
   </footer>
 
 </body>
