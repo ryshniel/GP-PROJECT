@@ -7,7 +7,7 @@
 
   <style>
     :root {
-      --sky-blue: #48639c;
+      --dark-blue: #003366;
       --beige: #ffdc7f;
       --soft-blue: #6a9ab0;
     }
@@ -15,11 +15,19 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      padding: 20px;
     }
 
     nav {
-      background-color: var(--sky-blue);
+      background-color: var(--dark-blue);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    a:hover {
+    color: var(--soft-blue);
     }
 
     .navbar {
@@ -27,15 +35,15 @@
     }
 
     .nav-link {
-      color: black !important;
+      color: white;
       position: relative;
       padding: 8px 16px;
       text-decoration: none;
     }
 
-    .nav-item:hover {
-      transform: translateY(-2px);
-    }
+    .nav-link:hover {
+            color: var(--beige);
+         }
 
     .nav-link.active {
       font-weight: 600;
@@ -50,7 +58,7 @@
     }
 
     .main {
-      background: url("doctor.jpg") no-repeat center center;
+      background: url("gallery/bg2.jpg") no-repeat center center;
       background-size: cover;
       height: 300px;
       display: flex;
@@ -64,7 +72,7 @@
     .main .heading-box {
       background-color: rgba(255, 255, 255, 0.85);
       padding: 20px 30px;
-      border-left: 6px solid var(--sky-blue);
+      border-left: 6px solid var(--dark-blue);
       border-radius: 0 10px 10px 0;
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
       color: #003366;
@@ -73,7 +81,7 @@
     .main h1 {
       font-size: 60px;
       margin-bottom: 10px;
-      color: black;
+      color: white;
     }
 
     .category-box {
@@ -135,7 +143,7 @@
     }
 
     footer {
-         background-color: var(--sky-blue);
+         background-color: var(--dark-blue);
          color: white;
     }
   </style>
@@ -184,9 +192,9 @@
             <a class="nav-link" href="contactus.html">Contact Us</a>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item px-2">
             <a href="appointment.html">
-              <button type="button" class="btn btn-warning fw-light">Book Appointment</button>
+              <button type="button" class="btn btn-warning fw-bold">Book Appointment</button>
             </a>
           </li>
         </ul>
@@ -198,24 +206,24 @@
   <section class="main">
     <div>
         <h1><strong>Our Doctors</strong></h1>
-    </div>>
+    </div>
   </section>
 
   <div class="category-box">
     <div class="category-header">Cardiology</div>
     <div class="doctor-card">
-      <img src="ng.jpg" class="doctor-img" alt="Cardiology">
+      <img src="doctor jpg/ng_kim.jpg" class="doctor-img" alt="Cardiology">
       <div class="doctor-info">
         <div class="doctor-name">Dr. Ng Kim Fong (L)</div>
-        <div style="color: yellow;">★★★★★</div>
+        <div style="color: gold;">★★★★★</div>
         <a href="appointment.html" class="btn-appointment">Book Appointment</a>
       </div>
     </div>
     <div class="doctor-card">
-      <img src="md.jpg" class="doctor-img" alt="Cardiology">
+      <img src="doctor jpg/md.jpg" class="doctor-img" alt="Cardiology">
       <div class="doctor-info">
         <div class="doctor-name">Dr. Md. Adhanizam Buyong (L)</div>
-        <div style="color: yellow;">★★★★★</div>
+        <div style="color: gold;">★★★★★</div>
         <a href="appointment.html" class="btn-appointment">Book Appointment</a>
       </div>
     </div>
@@ -224,18 +232,18 @@
   <div class="category-box">
     <div class="category-header">Dental</div>
     <div class="doctor-card">
-      <img src="anna.webp" class="doctor-img" alt="Dental">
+      <img src="doctor jpg/anna.jpg" class="doctor-img" alt="Dental">
       <div class="doctor-info">
         <div class="doctor-name">Dr. Anna Masuroh Bt Osman</div>
-        <div style="color: yellow;">★★★★★</div>
+        <div style="color: gold;">★★★★★</div>
         <a href="appointment.html" class="btn-appointment">Book Appointment</a>
       </div>
     </div>
     <div class="doctor-card">
-      <img src="s.loshini.jpg" class="doctor-img" alt="Dental">
+      <img src="doctor jpg/s.loshini.jpg" class="doctor-img" alt="Dental">
       <div class="doctor-info">
         <div class="doctor-name">Dr. S. Loshini Sivaneson</div>
-        <div style="color: yellow;">★★★★★</div>
+        <div style="color: gold;">★★★★★</div>
         <a href="appointment.html" class="btn-appointment">Book Appointment</a>
       </div>
     </div>
@@ -244,18 +252,18 @@
   <div class="category-box">
     <div class="category-header">Psychiatry</div>
     <div class="doctor-card">
-      <img src="fatina.jpg" class="doctor-img" alt="Psychiatry">
+      <img src="doctor jpg/fatina.jpg" class="doctor-img" alt="Psychiatry">
       <div class="doctor-info">
         <div class="doctor-name">Dr. Fatina Anha Bt Fazid</div>
-        <div style="color: yellow;">★★★★☆</div>
+        <div style="color: gold;">★★★★☆</div>
         <a href="appointment.html" class="btn-appointment">Book Appointment</a>
       </div>
     </div>
     <div class="doctor-card">
-      <img src="nurul.jpg" class="doctor-img" alt="Psychiatry">
+      <img src="doctor jpg/nurul_hana.jpg" class="doctor-img" alt="Psychiatry">
       <div class="doctor-info">
         <div class="doctor-name">Dr. Nurul Hana Binti Husain</div>
-        <div style="color: yellow;">★★★★★</div>
+        <div style="color: gold;">★★★★★</div>
         <a href="appointment.html" class="btn-appointment">Book Appointment</a>
       </div>
     </div>
