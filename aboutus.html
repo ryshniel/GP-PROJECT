@@ -21,6 +21,7 @@
         font-family: Arial, sans-serif;
       }
 
+      /* Navbar styling */
       nav {
         background-color: var(--dark-blue);
       }
@@ -62,6 +63,7 @@
 
       .nav-link.active::after {
         display: none;
+        background-color: rgba(255, 255, 255, 0.9);
       }
 
       .navbar-nav .nav-link,
@@ -69,11 +71,11 @@
         color: white !important;
       }
 
-
       .dropdown:hover .dropdown-menu {
         display: block;
       }
 
+      /* main section styling */
       .main {
         background-image: url("gallery/drprescripiton.jpg");
         background-repeat: no-repeat;
@@ -104,6 +106,7 @@
         text-shadow: 1px 1px 4px rgba(0, 0, 0, 1);
       }
 
+      /* mission, vision, and unique section */
       .section-boxes {
         display: flex;
         flex-wrap: wrap;
@@ -132,6 +135,7 @@
         background-color: #f0e6ff;
       }
 
+      /* responsive adjustment */
       @media (max-width: 768px) {
         .main h1 {
           font-size: 32px;
@@ -142,6 +146,7 @@
         }
       }
 
+      /* footer styling */
       footer {
         background-color: var(--dark-blue);
         color: white;
@@ -149,9 +154,10 @@
     </style>
   </head>
   <body>
-    <!-- Navbar -->
+    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid">
+        <!-- for phone display -->
         <button
           class="navbar-toggler mx-auto d-lg-none"
           type="button"
@@ -164,6 +170,7 @@
           class="collapse navbar-collapse justify-content-center"
           id="navbarNav">
           <ul class="navbar-nav text-center align-items-center">
+            <!-- Logo -->
             <li class="nav-item">
               <a class="navbar-brand">
                 <img
@@ -174,6 +181,7 @@
               </a>
             </li>
 
+            <!-- Home -->
             <li class="nav-item px-3 fw-bold">
               <a class="nav-link" href="home.html">Home</a>
             </li>
@@ -208,6 +216,7 @@
               <a class="nav-link" href="contactus.html">Contact Us</a>
             </li>
 
+            <!-- Appointment Button -->
             <li class="nav-item px-2">
               <a href="appointment.html">
                 <button type="button" class="btn btn-warning fw-bold">
@@ -234,11 +243,7 @@
 
     <!-- Fun Fact and History -->
     <div
-      style="
-        background-color: lavender;
-        padding: 40px 20px;
-        text-align: center;
-      ">
+      style="background-color: lavender; padding: 40px 20px; text-align: center;">
       <h2 style="color: #003366"><strong>Fun Fact & History</strong></h2>
       <p style="max-width: 800px; margin: auto; font-size: 18px">
         Did you know? <strong>HelloDoctor</strong> was born as a university
@@ -251,7 +256,7 @@
       </p>
     </div>
 
-    <!-- Mission and Vision -->
+    <!-- Mission, Vision & Unique -->
     <section class="section-boxes">
       <div class="mission">
         <h2><strong>Our Mission</strong></h2>
@@ -280,6 +285,7 @@
     </div>
     </section>
 
+    <!-- Why Choose HelloDoctor -->
     <section style="background-color:#f9f9f9; padding: 40px 20px; text-align:center;">
       <h2 style="color:#003366;"><strong>Why Choose HelloDoctor?</strong></h2>
       <div style="max-width: 900px; margin:auto; font-size: 18px;">
@@ -366,8 +372,8 @@
           </div>
         </div>
 
+        <!-- Footer Bottom -->
         <div class="footer-divider pt-3 mt-3"></div>
-
         <div class="row justify-content-center">
           <div class="col-md-6 text-center mb-3">
             <p>
