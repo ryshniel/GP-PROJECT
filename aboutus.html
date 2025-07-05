@@ -33,6 +33,7 @@
         color: var(--soft-blue);
       }
 
+      <!-- Navbar styling -->
       .navbar {
         padding: 8px 16px;
       }
@@ -42,6 +43,14 @@
         position: relative;
         padding: 8px 16px;
         text-decoration: none;
+      }
+
+      .nav-item {
+        transition: transform 0.2s;
+      }
+
+      .nav-item:hover {
+        transform: translateY(-2px);
       }
 
       .nav-link:hover {
@@ -55,6 +64,12 @@
       .nav-link.active::after {
         display: none;
       }
+
+      .navbar-nav .nav-link,
+      .navbar-nav .dropdown-toggle {
+        color: white !important;
+      }
+
 
       .dropdown:hover .dropdown-menu {
         display: block;
@@ -112,6 +127,10 @@
 
       .vision {
         background-color: #fff4cc;
+      }
+
+      .unique {
+        background-color: #f0e6ff;
       }
 
       @media (max-width: 768px) {
@@ -221,7 +240,7 @@
         padding: 40px 20px;
         text-align: center;
       ">
-      <h2 style="color: #00796b"><strong>Fun Fact & History</strong></h2>
+      <h2 style="color: #003366"><strong>Fun Fact & History</strong></h2>
       <p style="max-width: 800px; margin: auto; font-size: 18px">
         Did you know? <strong>HelloDoctor</strong> was born as a university
         project in 2023. It is just an idea among friends who wanted to make
@@ -250,7 +269,32 @@
           using modern technology and support.
         </p>
       </div>
+
+      <div class="unique">
+      <h2><strong>What Makes Us Unique</strong></h2>
+      <ul>
+        <li> 24/7 online appointment booking</li>
+        <li> Friendly, multilingual staff</li>
+        <li> Over 95% patient satisfaction</li>
+        <li> Modern diagnostic equipment</li>
+      </ul>
+    </div>
     </section>
+
+    <section style="background-color:#f9f9f9; padding: 40px 20px; text-align:center;">
+      <h2 style="color:#003366;"><strong>Why Choose HelloDoctor?</strong></h2>
+      <div style="max-width: 900px; margin:auto; font-size: 18px;">
+        <p>From the comfort of your home, HelloDoctor connects you with certified doctors you can trust. Here’s why thousands of patients choose us:</p>
+        <ul style="text-align: left; margin-top: 20px;">
+          <li> 24/7 appointment access</li>
+          <li> Zero waiting time with online booking</li>
+          <li> Transparent reviews and ratings</li>
+          <li> Multilingual support for diverse communities</li>
+          <li> Easy to use - even for first-time users!</li>
+        </ul>
+      </div>
+    </section>
+
 
     <!-- Footer -->
     <footer
