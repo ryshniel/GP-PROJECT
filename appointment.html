@@ -93,7 +93,7 @@
   input[type="select"] {
     background-color: gainsboro;
     border: 1px solid black;
-    border-radius: 4px;
+    border-radius: 3px;
     padding: 12px 16px;
     width: 100%;
     box-sizing: border-box;
@@ -265,9 +265,7 @@
                           :max="maxDate"
                           @change="fetchAvailableSlots()" 
                           required>
-                   <small class="text-muted">Appointments available from <span x-text="minDate"></span> to <span x-text="maxDate"></span></small>
-               </div>
-               
+               </div>      
                <div class="col-md-6 mb-3">
                    <label class="form-label">Available Time Slots:<span class="text-danger">*</span></label>
                    <div class="d-flex flex-wrap gap-2">
@@ -388,11 +386,7 @@
          gender: '',
          email: ''
        },
-       
-       // Date constraints (today to 3 months in future)
-       minDate: new Date().toISOString().split('T')[0],
-       maxDate: new Date(new Date().setMonth(new Date().getMonth() + 3)).toISOString().split('T')[0],
-       
+             
        get filteredDoctors() {
          if (!this.form.specialisation) return [];
          return this.doctors.filter(
@@ -500,8 +494,7 @@
                 Damansara Utama,<br />47400 Petaling Jaya, Selangor
               </p>
               <p>
-                <i class="bi bi-telephone-fill me-2"></i> (605)
-                472-3333
+                <i class="bi bi-telephone-fill me-2"></i> +(605)-472-3333
               </p>
               <p>
                 <i class="bi bi-envelope-fill me-2"></i>
