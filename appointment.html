@@ -265,9 +265,7 @@
                           :max="maxDate"
                           @change="fetchAvailableSlots()" 
                           required>
-                   <small class="text-muted">Appointments available from <span x-text="minDate"></span> to <span x-text="maxDate"></span></small>
-               </div>
-               
+               </div>      
                <div class="col-md-6 mb-3">
                    <label class="form-label">Available Time Slots:<span class="text-danger">*</span></label>
                    <div class="d-flex flex-wrap gap-2">
@@ -388,11 +386,7 @@
          gender: '',
          email: ''
        },
-       
-       // Date constraints (today to 3 months in future)
-       minDate: new Date().toISOString().split('T')[0],
-       maxDate: new Date(new Date().setMonth(new Date().getMonth() + 3)).toISOString().split('T')[0],
-       
+             
        get filteredDoctors() {
          if (!this.form.specialisation) return [];
          return this.doctors.filter(

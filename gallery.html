@@ -432,104 +432,8 @@
       </div>
     </section>
     <br />
-    <!-- Alpine.js Data -->
-    <script>
-      // navbar js
-      document.addEventListener("alpine:init", () => {
-        // Store for navigation state
-        Alpine.store("nav", {
-          open: false,
-          currentPage: "home",
-
-          toggle() {
-            this.open = !this.open;
-          },
-
-          isActive(page) {
-            return this.currentPage === page;
-          },
-        });
-      });
-
-      // Alpine.js component for services
-      document.addEventListener("alpine:init", () => {
-        Alpine.data("services", () => ({
-          services: [
-            {
-              id: 1,
-              name: "General Checkup",
-              description:
-                "Comprehensive health assessment including vital signs check, medical history review, and physical examination by our primary care physicians.",
-              image:
-                "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-              category: "general",
-              duration: "30 mins",
-              price: 80,
-            },
-            {
-              id: 2,
-              name: "Cardiology Consultation",
-              description:
-                "Specialized heart health evaluation with ECG interpretation and cardiovascular risk assessment by our board-certified cardiologists.",
-              image:
-                "https://images.unsplash.com/photo-1579684453423-f84349ef60b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2012&q=80",
-              category: "specialized",
-              duration: "45 mins",
-              price: 150,
-            },
-            {
-              id: 3,
-              name: "MRI Scan",
-              description:
-                "Advanced magnetic resonance imaging for detailed internal body structure visualization, interpreted by our radiologists.",
-              image:
-                "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-              category: "diagnostic",
-              duration: "60 mins",
-              price: 350,
-            },
-            {
-              id: 4,
-              name: "Pediatric Care",
-              description:
-                "Child-focused medical services including vaccinations, growth monitoring, and common childhood illness treatment.",
-              image:
-                "https://images.unsplash.com/photo-1627855437693-dcc7b0c4ba7a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-              category: "general",
-              duration: "30 mins",
-              price: 90,
-            },
-            {
-              id: 5,
-              name: "Dermatology",
-              description:
-                "Skin health services including mole checks, acne treatment, and skin cancer screenings by dermatology specialists.",
-              image:
-                "https://images.unsplash.com/photo-1629909613654-28e37786f4bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2089&q=80",
-              category: "specialized",
-              duration: "30 mins",
-              price: 120,
-            },
-            {
-              id: 6,
-              name: "Blood Tests",
-              description:
-                "Comprehensive blood work including complete blood count, metabolic panel, cholesterol screening, and more.",
-              image:
-                "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-              category: "diagnostic",
-              duration: "15 mins",
-              price: 50,
-            },
-          ],
-        }));
-      });
-    </script>
-
-    <!-- Update the Alpine.js initialization at the bottom -->
     <script>
       document.addEventListener("alpine:init", () => {
-        // Existing nav store remains unchanged
         Alpine.store("nav", {
           open: false,
           currentPage: "home",
@@ -540,50 +444,6 @@
             return this.currentPage === page;
           },
         });
-
-        // New gallery component
-        Alpine.data("gallery", () => ({
-          activeTab: "all",
-          showModal: false,
-          selectedService: null,
-          services: [
-            // Your existing services array remains unchanged
-            {
-              id: 1,
-              name: "General Checkup",
-              description:
-                "Comprehensive health assessment including vital signs check, medical history review, and physical examination by our primary care physicians.",
-              image:
-                "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-              category: "general",
-              duration: "30 mins",
-              price: 80,
-            },
-            // Add more services if needed
-            {
-              id: 7,
-              name: "Operating Theater",
-              description:
-                "State-of-the-art surgical facilities with advanced equipment for various procedures.",
-              image:
-                "https://images.unsplash.com/photo-1581595219315-a187dd40c322?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-              category: "specialized",
-              duration: "Varies",
-              price: 0,
-            },
-            {
-              id: 8,
-              name: "Patient Rooms",
-              description:
-                "Comfortable and modern patient rooms designed for recovery and relaxation.",
-              image:
-                "https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-              category: "general",
-              duration: "N/A",
-              price: 0,
-            },
-          ],
-        }));
       });
     </script>
 
@@ -629,7 +489,7 @@
             </ul>
           </div>
 
-          <!-- Contact with Centered Logo -->
+          <!-- Contact with Logo -->
           <div class="col-md-6 mb-4">
             <div class="d-flex flex-column align-items-center text-center">
               <!-- Centered Logo -->
